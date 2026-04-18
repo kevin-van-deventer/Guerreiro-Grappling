@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Manrope, Lexend } from "next/font/google";
 import { LeadModal } from "@/components/LeadModal";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -19,8 +20,38 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
-  title: "Guerreiro Grappling | Kinetic Precision BJJ & MMA",
+  metadataBase: new URL("https://guerreirograppling.co.za"),
+  title: {
+    default: "Guerreiro Grappling | Kinetic Precision BJJ & MMA",
+    template: "%s - Guerreiro Grappling"
+  },
   description: "Experience the evolution of grappling in Durban. High-performance Brazilian Jiu-Jitsu, MMA, and Kickboxing training.",
+  openGraph: {
+    title: "Guerreiro Grappling | Kinetic Precision BJJ & MMA",
+    description: "Experience the evolution of grappling in Durban. High-performance Brazilian Jiu-Jitsu, MMA, and Kickboxing training.",
+    url: "https://guerreirograppling.co.za",
+    siteName: "Guerreiro Grappling",
+    images: [
+      {
+        url: "/Guerreiro-Grappling-Logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Guerreiro Grappling Logo",
+      },
+    ],
+    locale: "en_ZA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Guerreiro Grappling | Kinetic Precision BJJ & MMA",
+    description: "Experience the evolution of grappling in Durban. High-performance Brazilian Jiu-Jitsu, MMA, and Kickboxing training.",
+    images: ["/Guerreiro-Grappling-Logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -41,6 +72,7 @@ export default function RootLayout({
       >
         {children}
         <LeadModal />
+        <WhatsAppButton />
       </body>
     </html>
   );

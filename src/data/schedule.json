@@ -1,0 +1,35 @@
+[
+  { "id": "p1", "day": "MON", "startTime": "07:30 AM", "endTime": "11:00 AM", "discipline": "Private Classes", "instructor": "Josh/Alex", "level": "Advanced" },
+  { "id": "1", "day": "MON", "startTime": "12:00 PM", "endTime": "12:40 PM", "discipline": "No-Gi Class", "instructor": "Josh", "level": "Fundamental" },
+  { "id": "2", "day": "MON", "startTime": "04:30 PM", "endTime": "05:30 PM", "discipline": "Junior Gi", "instructor": "Staff", "level": "Fundamental" },
+  { "id": "3", "day": "MON", "startTime": "05:30 PM", "endTime": "06:30 PM", "discipline": "Competition Class", "instructor": "Alex", "level": "Advanced" },
+  { "id": "4", "day": "MON", "startTime": "06:30 PM", "endTime": "07:30 PM", "discipline": "No-Gi Class", "instructor": "Josh", "level": "Fundamental" },
+  
+  { "id": "p2", "day": "TUE", "startTime": "07:30 AM", "endTime": "11:00 AM", "discipline": "Private Classes", "instructor": "Josh/Alex", "level": "Advanced" },
+  { "id": "5", "day": "TUE", "startTime": "04:30 PM", "endTime": "05:30 PM", "discipline": "Junior No-Gi", "instructor": "Staff", "level": "Fundamental" },
+  { "id": "6", "day": "TUE", "startTime": "05:30 PM", "endTime": "06:30 PM", "discipline": "MMA", "instructor": "Alex", "level": "Advanced" },
+  { "id": "7", "day": "TUE", "startTime": "06:30 PM", "endTime": "07:30 PM", "discipline": "Kickboxing", "instructor": "Staff", "level": "Advanced" },
+  { "id": "8", "day": "TUE", "startTime": "06:30 PM", "endTime": "07:30 PM", "discipline": "Gi Class", "instructor": "Josh", "level": "Fundamental" },
+
+  { "id": "p3", "day": "WED", "startTime": "07:30 AM", "endTime": "11:00 AM", "discipline": "Private Classes", "instructor": "Josh/Alex", "level": "Advanced" },
+  { "id": "9", "day": "WED", "startTime": "12:00 PM", "endTime": "12:40 PM", "discipline": "No-Gi Class", "instructor": "Josh", "level": "Fundamental" },
+  { "id": "10", "day": "WED", "startTime": "04:30 PM", "endTime": "05:30 PM", "discipline": "Junior Gi", "instructor": "Staff", "level": "Fundamental" },
+  { "id": "11", "day": "WED", "startTime": "05:30 PM", "endTime": "06:30 PM", "discipline": "Sparring (MMA/KB)", "instructor": "Alex", "level": "Advanced" },
+  { "id": "12", "day": "WED", "startTime": "06:30 PM", "endTime": "07:30 PM", "discipline": "No-Gi Class", "instructor": "Josh", "level": "Fundamental" },
+
+  { "id": "p4", "day": "THU", "startTime": "07:30 AM", "endTime": "11:00 AM", "discipline": "Private Classes", "instructor": "Josh/Alex", "level": "Advanced" },
+  { "id": "13", "day": "THU", "startTime": "04:30 PM", "endTime": "05:30 PM", "discipline": "Junior No-Gi", "instructor": "Staff", "level": "Fundamental" },
+  { "id": "14", "day": "THU", "startTime": "05:30 PM", "endTime": "06:30 PM", "discipline": "Competition Class", "instructor": "Alex", "level": "Advanced" },
+  { "id": "15", "day": "THU", "startTime": "06:30 PM", "endTime": "07:30 PM", "discipline": "Kickboxing", "instructor": "Staff", "level": "Advanced" },
+  { "id": "16", "day": "THU", "startTime": "06:30 PM", "endTime": "07:30 PM", "discipline": "Gi Class", "instructor": "Josh", "level": "Fundamental" },
+
+  { "id": "p5", "day": "FRI", "startTime": "07:30 AM", "endTime": "11:00 AM", "discipline": "Private Classes", "instructor": "Josh/Alex", "level": "Advanced" },
+  { "id": "17", "day": "FRI", "startTime": "12:00 PM", "endTime": "12:40 PM", "discipline": "Gi Class", "instructor": "Josh", "level": "Fundamental" },
+  { "id": "18", "day": "FRI", "startTime": "06:00 PM", "endTime": "07:00 PM", "discipline": "Ladies Only Class", "instructor": "Staff", "level": "Fundamental" },
+
+  { "id": "p6", "day": "SAT", "startTime": "07:30 AM", "endTime": "11:00 AM", "discipline": "Private Classes", "instructor": "Josh/Alex", "level": "Advanced" },
+  { "id": "19", "day": "SAT", "startTime": "08:30 AM", "endTime": "09:30 AM", "discipline": "Junior No-Gi", "instructor": "Staff", "level": "Fundamental" },
+  { "id": "20", "day": "SAT", "startTime": "10:15 AM", "endTime": "11:30 AM", "discipline": "Open Mat", "instructor": "Staff", "level": "Advanced" },
+
+  { "id": "p7", "day": "SUN", "startTime": "07:30 AM", "endTime": "11:00 AM", "discipline": "Private Classes", "instructor": "Josh/Alex", "level": "Advanced" }
+]

@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Classes", href: "/classes" },
+  { name: "Schedule", href: "/schedule" },
   { name: "About", href: "/about" },
   { name: "Rules", href: "/rules" },
   { name: "FAQs", href: "/faqs" },
@@ -42,9 +43,10 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2 group">
           <div className="relative w-12 h-12 md:w-16 md:h-16">
             <Image
-              src="/logo.png"
+              src="/Guerreiro-Grappling-Logo.png"
               alt="Guerreiro Grappling Logo"
               fill
+              sizes="(max-width: 768px) 48px, 64px"
               className="object-contain"
               priority
             />

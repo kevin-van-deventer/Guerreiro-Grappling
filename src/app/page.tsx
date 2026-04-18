@@ -1,32 +1,16 @@
 import React from "react";
+import { Metadata } from "next";
+import { Navbar } from "@/components/Navbar";
+
+export const metadata: Metadata = {
+  title: "Home - Guerreiro Grappling",
+  description: "Transformative Brazilian Jiu-Jitsu at Guerreiro Grappling: Fitness, resilience, self-defense – start your journey today!",
+};
 
 export default function HomePage() {
   return (
     <div className="bg-background text-on-background font-body overflow-x-hidden">
-      {/* TopNavBar */}
-      <nav className="fixed top-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-xl z-50">
-        <div className="max-w-[1920px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center nav-container">
-          <div className="flex items-center">
-            <img 
-              alt="Guerreiro Grappling Logo" 
-              className="h-12 md:h-16 w-auto object-contain" 
-              src="/Guerreiro-Grappling-Logo.png" 
-            />
-          </div>
-          <div className="hidden lg:flex gap-8 items-center">
-            <a className="font-headline font-bold tracking-tighter uppercase text-black dark:text-white opacity-70 hover:opacity-100 transition-opacity hover:skew-x-[-12deg] hover:text-blue-600 transition-all duration-150 ease-in-out" href="#">Classes</a>
-            <a className="font-headline font-bold tracking-tighter uppercase text-black dark:text-white opacity-70 hover:opacity-100 transition-opacity hover:skew-x-[-12deg] hover:text-blue-600 transition-all duration-150 ease-in-out" href="#">Technique</a>
-            <a className="font-headline font-bold tracking-tighter uppercase text-black dark:text-white opacity-70 hover:opacity-100 transition-opacity hover:skew-x-[-12deg] hover:text-blue-600 transition-all duration-150 ease-in-out" href="#">Instructors</a>
-            <a className="font-headline font-bold tracking-tighter uppercase text-black dark:text-white opacity-70 hover:opacity-100 transition-opacity hover:skew-x-[-12deg] hover:text-blue-600 transition-all duration-150 ease-in-out" href="#">Schedule</a>
-            <a className="font-headline font-bold tracking-tighter uppercase text-black dark:text-white opacity-70 hover:opacity-100 transition-opacity hover:skew-x-[-12deg] hover:text-blue-600 transition-all duration-150 ease-in-out" href="#">About</a>
-            <a className="font-headline font-bold tracking-tighter uppercase text-black dark:text-white opacity-70 hover:opacity-100 transition-opacity hover:skew-x-[-12deg] hover:text-blue-600 transition-all duration-150 ease-in-out" href="#">Blog</a>
-            <a className="font-headline font-bold tracking-tighter uppercase text-black dark:text-white opacity-70 hover:opacity-100 transition-opacity hover:skew-x-[-12deg] hover:text-blue-600 transition-all duration-150 ease-in-out" href="#">Fees</a>
-          </div>
-          <button className="torque-gradient text-on-primary font-headline font-bold uppercase px-4 md:px-6 py-2 skew-x-[-12deg] hover:skew-x-0 transition-all active:scale-95 text-sm md:text-base">
-            BOOK SESSION
-          </button>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-32 pb-20 md:pt-40 md:pb-32 px-4 md:px-8 overflow-hidden">
