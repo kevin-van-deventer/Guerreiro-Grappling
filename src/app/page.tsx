@@ -1,11 +1,9 @@
-import React from "react";
-import { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Home - Guerreiro Grappling",
-  description: "Transformative Brazilian Jiu-Jitsu at Guerreiro Grappling: Fitness, resilience, self-defense – start your journey today!",
-};
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Navbar } from "@/components/Navbar";
 
 export default function HomePage() {
   return (
@@ -20,10 +18,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
           <div className="space-y-10">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-headline font-black leading-[0.95] tracking-tighter uppercase">
-              UNLEASH THE <br /> <span className="text-primary italic">POWER</span> OF FLOW
+              DURBAN&apos;S PREMIER <br /> <span className="text-primary italic">BJJ</span> GYM
             </h1>
             <p className="text-lg md:text-xl max-w-lg opacity-80 font-medium">
-              Master the art of leverage and precision. At Guerreiro Grappling, we don't just teach techniques; we engineer kinetic mastery through disciplined motion.
+              Brazilian Jiu-Jitsu, MMA &amp; Kickboxing in Gillitts, Durban. At Guerreiro Grappling, we engineer kinetic mastery through disciplined motion &mdash; for beginners, competitors, and kids (ages 7–14). Serving Kloof, Hillcrest, Winston Park &amp; Waterfall.
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <button className="torque-gradient text-on-primary px-8 md:px-10 py-4 md:py-5 font-headline font-black text-lg md:text-xl skew-x-[-12deg] hover:skew-x-0 transition-all uppercase shadow-[8px_8px_0px_0px_rgba(0,89,187,0.3)] w-full sm:w-auto">
@@ -232,85 +230,91 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Schedule Section */}
-      <section className="py-16 md:py-24 bg-surface-container relative diagonal-divider-top">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter">COMBAT TIMELINE</h2>
-              <p className="font-label text-[10px] md:text-sm font-bold opacity-60 uppercase mt-2 italic">Weekly Class Schedule // Guerreiro Grappling HQ</p>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex items-center gap-2 font-label text-[10px] font-bold uppercase"><div className="w-3 h-3 bg-primary"></div> Fundamental</div>
-              <div className="flex items-center gap-2 font-label text-[10px] font-bold uppercase"><div className="w-3 h-3 bg-secondary"></div> Advanced</div>
-            </div>
+      {/* Pricing Section */}
+      <section className="py-24 md:py-32 bg-background relative diagonal-divider-top overflow-hidden">
+        <div className="absolute inset-0 torque-gradient opacity-[0.03] skew-y-12 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+
+          {/* Section Header */}
+          <div className="text-center mb-16 space-y-3">
+            <p className="font-label font-bold text-primary uppercase tracking-[0.4em] text-xs">Monthly Memberships · No Long-term Contracts</p>
+            <h2 className="text-5xl md:text-7xl font-headline font-black uppercase tracking-tighter leading-none italic text-foreground">
+              INVEST IN <span className="text-primary">MASTERY</span>
+            </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-px bg-outline-variant/20 shadow-2xl">
-            {/* Monday */}
-            <div className="bg-surface-container-lowest p-6 space-y-6">
-              <h4 className="font-headline font-black text-xl uppercase border-b-2 border-primary pb-2">MON</h4>
-              <div className="space-y-4">
-                <div className="p-4 bg-surface-container-low border-l-4 border-primary skew-x-[-2deg] hover:skew-x-0 transition-all">
-                  <p className="font-label text-[10px] font-bold text-primary italic uppercase">06:00 AM</p>
-                  <p className="font-headline font-bold text-sm uppercase">Early Flow</p>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3 items-end">
+            {[
+              { name: "MMA",          price: "600",   features: ["MMA Fundamentals", "Striking & Takedowns", "Clinch Work", "All Levels Welcome"],             highlight: false },
+              { name: "Kickboxing",   price: "600",   features: ["Stand-up Striking", "Pad Work", "Footwork Drills", "All Levels Welcome"],                    highlight: false },
+              { name: "KB & MMA",     price: "800",   features: ["Kickboxing Classes", "MMA Classes", "Cross-Training", "Full Striking System"],               highlight: false },
+              { name: "Grappling",    price: "800",   features: ["BJJ Gi & No-Gi", "Takedowns & Sweeps", "Submission Mastery", "Competition Prep"],            highlight: false },
+              { name: "All Inclusive",price: "1,000", features: ["Every Class Access", "BJJ · MMA · KB", "Junior Classes", "Priority Booking"],               highlight: true  },
+            ].map((tier, i) => (
+              <motion.div
+                key={tier.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className={`relative flex flex-col p-7 border-t-8 shadow-2xl transition-all duration-300 hover:-translate-y-2 ${
+                  tier.highlight
+                    ? "bg-primary border-primary lg:scale-105 lg:-translate-y-2"
+                    : "bg-surface-container-lowest border-primary hover:border-primary/80"
+                }`}
+              >
+                {tier.highlight && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-neutral-900 dark:bg-white dark:text-neutral-900 text-white font-headline font-black text-[10px] uppercase tracking-widest px-4 py-1 shadow-lg whitespace-nowrap">
+                    Best Value
+                  </div>
+                )}
+
+                {/* Card number */}
+                <div className={`font-headline font-black text-6xl absolute top-3 right-4 leading-none select-none ${tier.highlight ? "text-white/10" : "text-black/5 dark:text-white/5"}`}>
+                  0{i + 1}
                 </div>
-                <div className="p-4 bg-surface-container-low border-l-4 border-secondary skew-x-[2deg] hover:skew-x-0 transition-all">
-                  <p className="font-label text-[10px] font-bold text-secondary italic uppercase tracking-widest">06:30 PM</p>
-                  <p className="font-headline font-bold text-sm uppercase">Adv. No-Gi</p>
+
+                {/* Tier name */}
+                <h3 className={`text-xl font-headline font-black uppercase tracking-tight mb-4 leading-tight ${tier.highlight ? "text-white" : "text-foreground"}`}>
+                  {tier.name}
+                </h3>
+
+                {/* Price */}
+                <div className={`flex items-baseline gap-1 mb-6 border-b pb-6 ${tier.highlight ? "border-white/20" : "border-foreground/10"}`}>
+                  <span className={`text-4xl font-headline font-black tracking-tighter ${tier.highlight ? "text-white" : "text-primary"}`}>
+                    R{tier.price}
+                  </span>
+                  <span className={`text-[10px] font-label font-bold uppercase tracking-widest ${tier.highlight ? "text-white/70" : "text-foreground/40"}`}>/&nbsp;month</span>
                 </div>
-              </div>
-            </div>
-            {/* Tuesday */}
-            <div className="bg-surface-container-lowest p-6 space-y-6">
-              <h4 className="font-headline font-black text-xl uppercase border-b-2 border-primary pb-2">TUE</h4>
-              <div className="space-y-4">
-                <div className="p-4 bg-surface-container-low border-l-4 border-primary skew-x-[2deg] hover:skew-x-0 transition-all">
-                  <p className="font-label text-[10px] font-bold text-primary italic uppercase">05:00 PM</p>
-                  <p className="font-headline font-bold text-sm uppercase">Gi Basics</p>
-                </div>
-                <div className="p-4 bg-surface-container-low border-l-4 border-secondary skew-x-[-2deg] hover:skew-x-0 transition-all">
-                  <p className="font-label text-[10px] font-bold text-secondary italic uppercase tracking-widest">07:30 PM</p>
-                  <p className="font-headline font-bold text-sm uppercase">Black Belt Lab</p>
-                </div>
-              </div>
-            </div>
-            {/* Wednesday */}
-            <div className="bg-surface-container-lowest p-6 space-y-6">
-              <h4 className="font-headline font-black text-xl uppercase border-b-2 border-primary pb-2">WED</h4>
-              <div className="space-y-4">
-                <div className="p-4 bg-surface-container-low border-l-4 border-primary skew-x-[-2deg] hover:skew-x-0 transition-all">
-                  <p className="font-label text-[10px] font-bold text-primary italic uppercase">12:00 PM</p>
-                  <p className="font-headline font-bold text-sm uppercase">Noon Roll</p>
-                </div>
-                <div className="p-4 bg-surface-container-low border-l-4 border-secondary skew-x-[2deg] hover:skew-x-0 transition-all">
-                  <p className="font-label text-[10px] font-bold text-secondary italic uppercase tracking-widest">06:30 PM</p>
-                  <p className="font-headline font-bold text-sm uppercase">Submission Core</p>
-                </div>
-              </div>
-            </div>
-            {/* Thursday */}
-            <div className="bg-surface-container-lowest p-6 space-y-6">
-              <h4 className="font-headline font-black text-xl uppercase border-b-2 border-primary pb-2">THU</h4>
-              <div className="space-y-4">
-                <div className="p-4 bg-surface-container-low border-l-4 border-primary skew-x-[2deg] hover:skew-x-0 transition-all">
-                  <p className="font-label text-[10px] font-bold text-primary italic uppercase tracking-widest">05:00 PM</p>
-                  <p className="font-headline font-bold text-sm uppercase">Leg Lock Tech</p>
-                </div>
-              </div>
-            </div>
-            {/* Friday */}
-            <div className="bg-surface-container-lowest p-6 space-y-6">
-              <h4 className="font-headline font-black text-xl uppercase border-b-2 border-primary pb-2">FRI</h4>
-              <div className="space-y-4">
-                <div className="p-4 bg-surface-container-low border-l-4 border-secondary skew-x-[-2deg] hover:skew-x-0 transition-all">
-                  <p className="font-label text-[10px] font-bold text-secondary italic uppercase tracking-widest">06:00 PM</p>
-                  <p className="font-headline font-bold text-sm uppercase">Open Mat Live</p>
-                </div>
-              </div>
-            </div>
+
+                {/* Features */}
+                <ul className="space-y-3 mb-8 flex-grow">
+                  {tier.features.map((feat) => (
+                    <li key={feat} className={`flex items-center gap-3 text-[11px] font-headline font-bold uppercase tracking-wider ${tier.highlight ? "text-white/90" : "text-foreground/70"}`}>
+                      <span className={`w-1.5 h-1.5 flex-shrink-0 ${tier.highlight ? "bg-white" : "bg-primary"}`}></span>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <Link
+                  href="/contact"
+                  className={`block text-center font-headline font-black text-xs uppercase tracking-widest px-4 py-4 transition-all duration-300 shadow-lg ${
+                    tier.highlight
+                      ? "bg-white text-primary hover:bg-neutral-100"
+                      : "bg-neutral-900 text-white hover:bg-primary dark:bg-white dark:text-neutral-900 dark:hover:bg-primary dark:hover:text-white"
+                  }`}
+                >
+                  Get Started
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
+
 
       {/* Coaches Section */}
       <section className="py-16 md:py-24 bg-background">
@@ -373,7 +377,9 @@ export default function HomePage() {
       <footer className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full border-t-8 border-blue-600 bg-neutral-50 dark:bg-neutral-950 py-12 px-4 md:px-8">
         <div className="space-y-4">
           <div className="text-xl font-black text-black dark:text-white font-headline">GUERREIRO GRAPPLING</div>
-          <p className="font-body text-xs tracking-wide uppercase text-neutral-500 italic">© 2024 GUERREIRO GRAPPLING. PRECISION IN MOTION.</p>
+          <p className="font-body text-xs tracking-wide uppercase text-neutral-500 italic">BJJ &bull; MMA &bull; Kickboxing &bull; Gillitts, Durban</p>
+          <p className="font-body text-xs tracking-wide uppercase text-neutral-500 italic">6 Old Main Road, Hamilton Cres, Gillitts, Durban 3610</p>
+          <p className="font-body text-xs tracking-wide uppercase text-neutral-500 italic">&copy; 2024 Guerreiro Grappling. All Rights Reserved.</p>
         </div>
         <div className="flex flex-wrap gap-4 md:gap-8 md:justify-end">
           <a className="font-body text-xs tracking-wide uppercase text-neutral-500 hover:text-black dark:hover:text-white hover:underline decoration-2 underline-offset-4 decoration-blue-600" href="#">Privacy Policy</a>

@@ -1,9 +1,12 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FAQs - Guerreiro Grappling",
-  description: "Find answers to common questions about our Brazilian Jiu Jitsu gym in Durban. Get info on classes, membership, and training tips!",
+  title: "FAQs | BJJ & Martial Arts Questions – Guerreiro Grappling, Durban",
+  description:
+    "Frequently asked questions about Brazilian Jiu-Jitsu at Guerreiro Grappling in Gillitts, Durban. Class info, pricing, memberships, Junior classes (ages 7–14) & private training.",
+  alternates: { canonical: "https://guerreirograppling.co.za/faqs" },
 };
+
 
 export default function FaqsLayout({
   children,

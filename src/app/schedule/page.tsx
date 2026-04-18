@@ -8,6 +8,8 @@ import { Lock, Unlock, Plus, Trash2, Save, X, Edit3, Calendar as CalendarIcon } 
 import { cn } from "@/lib/utils";
 
 // Types
+type Category = "adults" | "ladies" | "juniors" | "private";
+
 type ClassBlock = {
   id: string;
   day: string;
@@ -16,19 +18,34 @@ type ClassBlock = {
   discipline: string;
   instructor: string;
   level: "Fundamental" | "Advanced";
+  category: Category;
+};
+
+const CATEGORY_THEME: Record<Category, {
+  border: string;
+  bg: string;
+  label: string;
+  badge: string;
+  badgeText: string;
+  dot: string;
+}> = {
+  adults:  { border: "border-[#0059bb]",  bg: "bg-blue-50 dark:bg-blue-950/40",    label: "Adults",  badge: "bg-[#0059bb] text-white",         dot: "bg-[#0059bb]",  badgeText: "text-white" },
+  ladies:  { border: "border-rose-500",   bg: "bg-rose-50 dark:bg-rose-950/40",   label: "Ladies",  badge: "bg-rose-500 text-white",          dot: "bg-rose-500",  badgeText: "text-white" },
+  juniors: { border: "border-amber-500",  bg: "bg-amber-50 dark:bg-amber-950/40", label: "Juniors", badge: "bg-amber-400 text-amber-900",      dot: "bg-amber-500", badgeText: "text-amber-900" },
+  private: { border: "border-yellow-400", bg: "bg-yellow-50 dark:bg-yellow-950/40",label: "Private", badge: "bg-yellow-300 text-yellow-900",    dot: "bg-yellow-400",badgeText: "text-yellow-900" },
 };
 
 const DAYS = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
 const INITIAL_SCHEDULE: ClassBlock[] = [
-  { id: "1", day: "MON", startTime: "06:00 AM", endTime: "07:00 AM", discipline: "Early Flow", instructor: "Elias Thorne", level: "Fundamental" },
-  { id: "2", day: "MON", startTime: "06:30 PM", endTime: "07:30 PM", discipline: "Adv. No-Gi", instructor: "Sarah Vance", level: "Advanced" },
-  { id: "3", day: "TUE", startTime: "05:00 PM", endTime: "06:00 PM", discipline: "Gi Basics", instructor: "Marcus Reyes", level: "Fundamental" },
-  { id: "4", day: "TUE", startTime: "07:30 PM", endTime: "08:30 PM", discipline: "Black Belt Lab", instructor: "Elias Thorne", level: "Advanced" },
-  { id: "5", day: "WED", startTime: "12:00 PM", endTime: "01:00 PM", discipline: "Noon Roll", instructor: "Julian West", level: "Fundamental" },
-  { id: "6", day: "WED", startTime: "06:30 PM", endTime: "07:30 PM", discipline: "Submission Core", instructor: "Sarah Vance", level: "Advanced" },
-  { id: "7", day: "THU", startTime: "05:00 PM", endTime: "06:00 PM", discipline: "Leg Lock Tech", instructor: "Sarah Vance", level: "Advanced" },
-  { id: "8", day: "FRI", startTime: "06:00 PM", endTime: "08:00 PM", discipline: "Open Mat Live", instructor: "Staff", level: "Advanced" },
+  { id: "1", day: "MON", startTime: "06:00 AM", endTime: "07:00 AM", discipline: "Early Flow", instructor: "Elias Thorne", level: "Fundamental", category: "adults" },
+  { id: "2", day: "MON", startTime: "06:30 PM", endTime: "07:30 PM", discipline: "Adv. No-Gi", instructor: "Sarah Vance", level: "Advanced", category: "adults" },
+  { id: "3", day: "TUE", startTime: "05:00 PM", endTime: "06:00 PM", discipline: "Gi Basics", instructor: "Marcus Reyes", level: "Fundamental", category: "adults" },
+  { id: "4", day: "TUE", startTime: "07:30 PM", endTime: "08:30 PM", discipline: "Black Belt Lab", instructor: "Elias Thorne", level: "Advanced", category: "adults" },
+  { id: "5", day: "WED", startTime: "12:00 PM", endTime: "01:00 PM", discipline: "Noon Roll", instructor: "Julian West", level: "Fundamental", category: "adults" },
+  { id: "6", day: "WED", startTime: "06:30 PM", endTime: "07:30 PM", discipline: "Submission Core", instructor: "Sarah Vance", level: "Advanced", category: "adults" },
+  { id: "7", day: "THU", startTime: "05:00 PM", endTime: "06:00 PM", discipline: "Leg Lock Tech", instructor: "Sarah Vance", level: "Advanced", category: "adults" },
+  { id: "8", day: "FRI", startTime: "06:00 PM", endTime: "08:00 PM", discipline: "Open Mat Live", instructor: "Staff", level: "Advanced", category: "adults" },
 ];
 
 import { getSchedule, updateSchedule } from "@/app/actions/schedule";
@@ -84,7 +101,8 @@ export default function SchedulePage() {
       endTime: "06:00 PM",
       discipline: "New Class",
       instructor: "Staff",
-      level: "Fundamental"
+      level: "Fundamental",
+      category: "adults" as Category,
     };
     syncSchedule([...schedule, newClass]);
     setEditBlock(newClass);
@@ -104,28 +122,21 @@ export default function SchedulePage() {
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 md:px-12 bg-on-background text-background overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none select-none flex items-center justify-center -rotate-12">
-          <span className="font-headline font-black text-[25vw] leading-none tracking-tighter text-electric-blue uppercase">RHYTHM</span>
-        </div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="space-y-8 max-w-4xl">
-            <div className="flex items-center gap-4">
-              <div className="h-1 w-12 bg-primary"></div>
-              <span className="font-label font-bold text-primary uppercase tracking-widest text-sm">Combat Timeline</span>
-            </div>
-            <h1 className="text-6xl md:text-8xl font-headline font-black uppercase tracking-tighter leading-[0.9] italic">
-              TRANSFORM IN <br/><span className="text-primary">THE FLOW</span>
-            </h1>
-            <p className="text-xl md:text-2xl opacity-80 leading-relaxed font-medium max-w-3xl italic">
-              Precision is a discipline, and discipline requires a timeline. Every session at Guerreiro Grappling is engineered to push your mechanical limits. 
-              <br/><br/>
-              <span className="text-primary font-black">PRIVATE TRAINING:</span> Available with Coach Josh or Coach Alex from 07:30 – 11:00 (Mon–Sun).
-              <br/>
-              <span className="text-primary font-black">JUNIOR CLASSES (7–14):</span> R550 Monthly membership.
-            </p>
-          </div>
+      {/* Hero */}
+      <section className="pt-40 pb-24 px-6 md:px-12 bg-surface-container relative overflow-hidden">
+        <div className="absolute inset-0 torque-gradient opacity-[0.03] -rotate-12"></div>
+        <div className="max-w-7xl mx-auto relative z-10 text-center">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-6xl md:text-9xl font-headline font-black uppercase tracking-tighter italic mb-4"
+          >
+            COMBAT <span className="text-secondary italic">TIMELINE</span>
+          </motion.h1>
+          <div className="h-2 w-32 bg-primary mx-auto mb-8"></div>
+          <p className="font-label font-bold text-primary uppercase tracking-[0.4em] text-sm md:text-base italic">
+            BJJ · No-Gi · MMA · Kickboxing · Gillitts, Durban
+          </p>
         </div>
       </section>
 
@@ -134,9 +145,13 @@ export default function SchedulePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
           <div>
             <h2 className="text-3xl font-headline font-black uppercase tracking-tighter">Weekly Operations</h2>
-            <div className="flex gap-4 mt-2">
-              <div className="flex items-center gap-2 font-label text-[10px] font-bold uppercase"><div className="w-3 h-3 bg-primary"></div> Fundamental</div>
-              <div className="flex items-center gap-2 font-label text-[10px] font-bold uppercase"><div className="w-3 h-3 bg-secondary"></div> Advanced</div>
+            <div className="flex flex-wrap gap-3 mt-4">
+              {(Object.entries(CATEGORY_THEME) as [Category, typeof CATEGORY_THEME[Category]][]).map(([key, t]) => (
+                <span key={key} className={cn("flex items-center gap-2 px-3 py-1 text-[10px] font-headline font-black uppercase tracking-widest", t.badge)}>
+                  <span className="w-2 h-2 rounded-full bg-white/50 inline-block"></span>
+                  {t.label}
+                </span>
+              ))}
             </div>
           </div>
 
@@ -166,48 +181,69 @@ export default function SchedulePage() {
       </section>
 
       {/* Calendar Grid */}
-      <section className="py-20 px-6 md:px-12">
+      <section className="py-24 md:py-32 px-6 md:px-12 bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-px bg-outline-variant/20 shadow-2xl overflow-hidden">
-            {DAYS.map(day => (
-              <div key={day} className="bg-surface-container-lowest min-h-[400px] flex flex-col group">
-                <div className="p-6 border-b-2 border-primary bg-surface-container-low sticky top-0 md:relative">
-                  <h4 className="font-headline font-black text-2xl uppercase italic tracking-tighter">{day}</h4>
-                </div>
-                
-                <div className="p-4 space-y-4 flex-grow">
-                  {schedule.filter(block => block.day === day).map(block => (
-                    <div 
-                      key={block.id}
-                      className={cn(
-                        "relative p-4 bg-surface-container border-l-4 transition-all duration-300 group/item",
-                        block.level === "Fundamental" ? "border-primary" : "border-secondary",
-                        isAdmin && "cursor-pointer hover:translate-x-2"
-                      )}
-                      onClick={() => isAdmin && setEditBlock(block)}
-                    >
-                      <p className="font-label text-[10px] font-bold opacity-60 italic uppercase tracking-widest">{block.startTime} - {block.endTime}</p>
-                      <p className="font-headline font-bold text-base uppercase leading-tight mt-1">{block.discipline}</p>
-                      <p className="text-[10px] font-bold opacity-40 uppercase mt-1">{block.instructor}</p>
-                      
-                      {isAdmin && (
-                        <div className="absolute top-2 right-2 opacity-0 group-hover/item:opacity-100 transition-opacity">
-                          <Edit3 size={14} className="text-primary" />
-                        </div>
-                      )}
-                    </div>
-                  ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-px bg-primary/10 shadow-2xl overflow-hidden border border-primary/10">
+            {DAYS.map((day, idx) => (
+              <motion.div
+                key={day}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="bg-white dark:bg-neutral-900 min-h-[500px] p-6 space-y-8"
+              >
+                <h4 className="font-headline font-black text-3xl uppercase border-b-4 border-primary italic pb-2 inline-block">
+                  {day}
+                </h4>
+
+                <div className="space-y-4">
+                  {schedule.filter(block => block.day === day).map(block => {
+                    const theme = CATEGORY_THEME[block.category as Category] ?? CATEGORY_THEME.adults;
+                    return (
+                      <div
+                        key={block.id}
+                        className={cn(
+                          "relative p-4 skew-x-[-3deg] border-l-8 transition-kinetic group/item hover:skew-x-0 overflow-hidden shadow-sm",
+                          theme.border,
+                          theme.bg,
+                          isAdmin && "cursor-pointer"
+                        )}
+                        onClick={() => isAdmin && setEditBlock(block)}
+                      >
+                        {/* Category badge */}
+                        <span className={cn("inline-block px-1.5 py-0.5 text-[9px] font-headline font-black uppercase tracking-widest mb-2 rounded-sm", theme.badge)}>
+                          {theme.label}
+                        </span>
+                        <span className="font-label text-[10px] font-black uppercase opacity-50 mb-1 block italic">
+                          {block.startTime} – {block.endTime}
+                        </span>
+                        <p className="font-headline font-black text-base uppercase leading-tight group-hover/item:opacity-80 transition-opacity">
+                          {block.discipline}
+                        </p>
+                        <p className="text-[9px] font-bold opacity-30 uppercase tracking-widest mt-1">
+                          {block.instructor}
+                        </p>
+
+                        {isAdmin && (
+                          <div className="absolute top-2 right-2 opacity-0 group-hover/item:opacity-100 transition-opacity">
+                            <Edit3 size={14} className="text-primary" />
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
 
                   {isAdmin && (
-                    <button 
+                    <button
                       onClick={() => addClass(day)}
-                      className="w-full py-4 border-2 border-dashed border-primary/20 text-primary/30 hover:border-primary/50 hover:text-primary transition-all flex items-center justify-center gap-2"
+                      className="w-full py-4 border-2 border-dashed border-primary/20 text-primary/30 hover:border-primary/60 hover:text-primary transition-all flex items-center justify-center gap-2 font-headline font-bold text-sm uppercase"
                     >
                       <Plus size={20} />
                     </button>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -329,6 +365,26 @@ export default function SchedulePage() {
                     onChange={(e) => setEditBlock({...editBlock, instructor: e.target.value})}
                     className="w-full p-4 bg-surface-container font-headline font-bold outline-none focus:ring-2 ring-primary"
                   />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-label font-bold text-[10px] uppercase opacity-40">Category</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {(Object.entries(CATEGORY_THEME) as [Category, typeof CATEGORY_THEME[Category]][]).map(([key, t]) => (
+                      <button
+                        key={key}
+                        onClick={() => setEditBlock({...editBlock, category: key})}
+                        className={cn(
+                          "py-3 font-headline font-black text-xs uppercase tracking-widest transition-all border-2",
+                          editBlock.category === key
+                            ? cn(t.badge, "border-transparent")
+                            : "bg-surface-container text-foreground/40 border-transparent hover:border-primary/30"
+                        )}
+                      >
+                        {t.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="space-y-2">

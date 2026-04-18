@@ -42,22 +42,21 @@ export default function FAQsPage() {
     <main className="min-h-screen">
       <Navbar />
 
-      {/* Header */}
-      <section className="pt-40 pb-20 px-6 md:px-12 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 torque-gradient opacity-[0.03] rotate-6"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-6 text-center"
+      {/* Hero */}
+      <section className="pt-40 pb-24 px-6 md:px-12 bg-surface-container relative overflow-hidden">
+        <div className="absolute inset-0 torque-gradient opacity-[0.03] -rotate-12"></div>
+        <div className="max-w-7xl mx-auto relative z-10 text-center">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-6xl md:text-9xl font-headline font-black uppercase tracking-tighter italic mb-4"
           >
-            <h1 className="text-6xl md:text-9xl font-headline font-black uppercase tracking-tighter italic">
-              INTEL <span className="text-secondary italic">CENTER</span>
-            </h1>
-            <p className="text-xl md:text-3xl font-medium opacity-60 max-w-3xl mx-auto italic uppercase tracking-widest">
-              Frequently Asked Questions // Technical Support
-            </p>
-          </motion.div>
+            INTEL <span className="text-secondary italic">CENTER</span>
+          </motion.h1>
+          <div className="h-2 w-32 bg-primary mx-auto mb-8"></div>
+          <p className="font-label font-bold text-primary uppercase tracking-[0.4em] text-sm md:text-base italic">
+            BJJ Questions Answered · Gillitts, Durban
+          </p>
         </div>
       </section>
 

@@ -1,8 +1,12 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Calendar - Guerreiro Grappling",
-  description: "View our Brazilian Jiu Jitsu gym calendar for class schedules, events, and important updates in Durban. Stay on track with your training!",
+  title: "Class Schedule | BJJ, MMA & Kickboxing Timetable – Gillitts, Durban",
+  description:
+    "View Guerreiro Grappling's weekly class schedule in Gillitts, Durban. BJJ, No-Gi, MMA, Kickboxing, Ladies Only & Junior classes (ages 7–14). Private training available Mon–Sun from 07:30.",
+  alternates: {
+    canonical: "https://guerreirograppling.co.za/schedule",
+  },
 };
 
 export default function ScheduleLayout({
