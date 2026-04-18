@@ -38,99 +38,100 @@ export const LeadModal = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="absolute inset-0 bg-black/80 backdrop-blur-2xl"
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
           />
 
           {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -3, x: -100 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0, x: 0 }}
-            exit={{ opacity: 0, scale: 0.95, rotate: 3, x: 100 }}
-            transition={{ type: "spring", damping: 20, stiffness: 100 }}
-            className="relative w-full max-w-2xl bg-white dark:bg-neutral-950 overflow-hidden shadow-[32px_32px_0px_0px_rgba(0,123,255,0.2)] border-t-[12px] border-primary"
+            initial={{ opacity: 0, scale: 0.9, rotate: -2, y: 50 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, rotate: 2, y: 50 }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="relative w-full max-w-xl bg-neutral-950 text-white overflow-hidden border-t-[8px] border-primary shadow-[16px_16px_0px_0px_rgba(0,89,187,0.2)]"
           >
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 p-2 text-on-surface/40 hover:text-secondary transition-colors z-30"
+              className="absolute top-5 right-5 p-2 text-white/30 hover:text-white hover:rotate-90 transition-all z-30"
+              aria-label="Close modal"
             >
-              <X size={32} />
+              <X size={28} />
             </button>
 
             {/* Diagonal Branding Element */}
-            <div className="absolute top-0 right-0 w-32 h-32 torque-gradient opacity-10 skew-x-[45deg] -translate-y-16 translate-x-16 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-40 h-40 torque-gradient opacity-10 skew-x-[45deg] -translate-y-20 translate-x-20 pointer-events-none" />
 
-            <div className="p-8 md:p-12 relative z-10">
+            <div className="p-8 md:p-10 relative z-10">
               {!isSubmitted ? (
                 <>
-                  <div className="space-y-4 mb-10">
-                    <div className="flex items-center gap-3">
-                      <Zap className="text-secondary fill-secondary" size={24} />
-                      <span className="font-label font-bold text-secondary uppercase tracking-[0.3em] text-xs">Limited Opportunity</span>
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-center gap-2">
+                      <Zap className="text-secondary fill-secondary" size={20} />
+                      <span className="font-label font-bold text-secondary uppercase tracking-[0.3em] text-[10px]">Limited Opportunity</span>
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-headline font-black uppercase tracking-tighter leading-none italic">
+                    <h2 className="text-5xl font-headline font-black uppercase tracking-tighter leading-none italic text-white">
                       TRY A <span className="text-primary">FREE</span> CLASS
                     </h2>
-                    <p className="text-lg md:text-xl opacity-70 font-medium leading-tight">
-                      We know you have questions. Stop overthinking and step into the flow. No fancy gear required—just you and your determination.
+                    <p className="text-sm md:text-base text-white/60 font-medium leading-relaxed pr-8">
+                      Stop overthinking and step into the flow. No fancy gear required—just you and your determination.
                     </p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="font-label font-bold uppercase text-[10px] tracking-widest opacity-60">First Name *</label>
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div className="space-y-1.5">
+                        <label className="font-label font-bold uppercase text-[10px] tracking-widest text-white/40 ml-1">First Name *</label>
                         <div className="relative group">
-                          <User className="absolute left-4 top-1/2 -translate-y-1/2 opacity-30 group-focus-within:opacity-100 transition-opacity" size={18} />
+                          <User className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-primary transition-colors" size={18} />
                           <input
                             required
                             type="text"
                             placeholder="John"
-                            className="w-full bg-surface-container-low px-12 py-5 font-headline font-bold text-lg outline-none border-b-4 border-transparent focus:border-primary transition-all skew-x-[-4deg] focus:skew-x-0"
+                            className="w-full bg-neutral-900 text-white placeholder-white/20 pl-11 pr-5 py-4 font-headline font-bold text-base outline-none border-b-2 border-transparent focus:border-primary transition-all skew-x-[-3deg] focus:skew-x-0"
                           />
                         </div>
                       </div>
-                      <div className="space-y-2">
-                        <label className="font-label font-bold uppercase text-[10px] tracking-widest opacity-60">Last Name</label>
+                      <div className="space-y-1.5">
+                        <label className="font-label font-bold uppercase text-[10px] tracking-widest text-white/40 ml-1">Last Name</label>
                         <input
                           type="text"
                           placeholder="Doe"
-                          className="w-full bg-surface-container-low px-6 py-5 font-headline font-bold text-lg outline-none border-b-4 border-transparent focus:border-primary transition-all skew-x-[-4deg] focus:skew-x-0"
+                          className="w-full bg-neutral-900 text-white placeholder-white/20 px-5 py-4 font-headline font-bold text-base outline-none border-b-2 border-transparent focus:border-primary transition-all skew-x-[-3deg] focus:skew-x-0"
                         />
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="font-label font-bold uppercase text-[10px] tracking-widest opacity-60">Email Address *</label>
+                    <div className="space-y-1.5">
+                      <label className="font-label font-bold uppercase text-[10px] tracking-widest text-white/40 ml-1">Email Address *</label>
                       <div className="relative group">
-                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 opacity-30 group-focus-within:opacity-100 transition-opacity" size={18} />
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-primary transition-colors" size={18} />
                         <input
                           required
                           type="email"
                           placeholder="john@doe.com"
-                          className="w-full bg-surface-container-low px-12 py-5 font-headline font-bold text-lg outline-none border-b-4 border-transparent focus:border-primary transition-all skew-x-[-4deg] focus:skew-x-0"
+                          className="w-full bg-neutral-900 text-white placeholder-white/20 pl-11 pr-5 py-4 font-headline font-bold text-base outline-none border-b-2 border-transparent focus:border-primary transition-all skew-x-[-3deg] focus:skew-x-0"
                         />
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="font-label font-bold uppercase text-[10px] tracking-widest opacity-60">Phone Number *</label>
+                    <div className="space-y-1.5">
+                      <label className="font-label font-bold uppercase text-[10px] tracking-widest text-white/40 ml-1">Phone Number *</label>
                       <div className="relative group">
-                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 opacity-30 group-focus-within:opacity-100 transition-opacity" size={18} />
+                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-primary transition-colors" size={18} />
                         <input
                           required
                           type="tel"
-                          placeholder="+27 31 555 1234"
-                          className="w-full bg-surface-container-low px-12 py-5 font-headline font-bold text-lg outline-none border-b-4 border-transparent focus:border-primary transition-all skew-x-[-4deg] focus:skew-x-0"
+                          placeholder="082 495 7760"
+                          className="w-full bg-neutral-900 text-white placeholder-white/20 pl-11 pr-5 py-4 font-headline font-bold text-base outline-none border-b-2 border-transparent focus:border-primary transition-all skew-x-[-3deg] focus:skew-x-0"
                         />
                       </div>
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full torque-gradient text-on-primary py-6 md:py-8 font-headline font-black text-2xl skew-x-[-12deg] hover:skew-x-0 transition-all uppercase flex items-center justify-center gap-4 shadow-[12px_12px_0px_0px_rgba(0,89,187,0.3)] active:scale-95"
+                      className="w-full mt-4 torque-gradient text-white py-5 font-headline font-black text-xl skew-x-[-8deg] hover:skew-x-0 transition-all uppercase flex items-center justify-center gap-3 shadow-[8px_8px_0px_0px_rgba(0,89,187,0.3)] active:translate-y-1 active:shadow-none"
                     >
-                      CLAIM MY MAT SPACE <ArrowRight size={28} />
+                      CLAIM MY MAT SPACE <ArrowRight size={24} />
                     </button>
                   </form>
                 </>
@@ -138,14 +139,14 @@ export const LeadModal = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-20 space-y-8"
+                  className="text-center py-16 space-y-6"
                 >
-                  <div className="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center mx-auto shadow-2xl skew-x-12 animate-pulse">
-                    <Zap size={48} fill="currentColor" />
+                  <div className="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto shadow-2xl skew-x-[-12deg] hover:skew-x-0 transition-transform animate-pulse">
+                    <Zap size={36} fill="currentColor" />
                   </div>
-                  <h3 className="text-4xl font-headline font-black uppercase tracking-tighter">PREPARE FOR BATTLE</h3>
-                  <p className="text-xl max-w-md mx-auto opacity-70">
-                    We've received your inquiry. An instructor will contact you shortly to coordinate your infiltration.
+                  <h3 className="text-3xl font-headline font-black uppercase tracking-tighter text-white">PREPARE FOR BATTLE</h3>
+                  <p className="text-base max-w-sm mx-auto text-white/60 leading-relaxed">
+                    We've received your request. An instructor will contact you shortly to coordinate your trial session.
                   </p>
                 </motion.div>
               )}

@@ -34,7 +34,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 w-full z-50 transition-kinetic",
         scrolled 
-          ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl py-3 shadow-lg" 
+          ? "bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl py-3 shadow-lg" 
           : "bg-transparent py-5"
       )}
     >
