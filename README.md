@@ -65,8 +65,9 @@ To run this repository locally:
 
 1. Copy `.env.example` (or set manually) to `.env.local`
 2. Define `ADMIN_PASSWORD` & `NEXT_PUBLIC_ADMIN_PASSWORD` exactly to enable Schedule modifications.
-3. Run `npm install`
-4. Run `npm run dev`
+3. Define `GOOGLE_PLACES_API_KEY` to enable the live synchronisation of the infinite Google Reviews marquee component.
+4. Run `npm install`
+5. Run `npm run dev`
 
 *All changes to the schedule write directly to `src/data/schedule.json`. Ensure file-write permissions exist in production deployments.*
 
@@ -86,6 +87,8 @@ To run this repository locally:
 - [x] Upgraded website structural SEO (Title tags, Schema.org LocalBusiness injection, meta descriptions).
 - [x] Processed and integrated complete multi-platform Favicon setup (Apple Touch, Manifest, Android).
 - [x] Implemented global multi-column footer matrix across all subpages cleanly via layout wrappers.
+- [x] Designed and integrated the highly-kinetic 'Arsenal' Split-Screen SEO section to maximize AEO/SEO text indexing explicitly targeting 'BJJ Durban' queries.
+- [x] Built the Live Google Places API Server Component to fetch and display the highest 4 & 5-star venue reviews in an infinite auto-scrolling marquee (with strict 24-hr caching).
 
 ### Pending Deployment & Verification (TODO)
 - [ ] **Lead Form Engine**: Connect email address ingestion for the Lead Form submissions (e.g., via Resend/Nodemailer/Formspree).

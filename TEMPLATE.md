@@ -44,7 +44,9 @@ Crucial updates to ensure leads flow to the correct individual.
   - Integrate a database/email hook (e.g., Resend, Formspree) into the `handleSubmit` functions inside `src/components/LeadModal.tsx` and the Contact Page (`src/app/contact/page.tsx`).
 - [ ] **Footer Assets**:
   - Open `src/components/Footer.tsx`. Update the hardcoded physical address, email, social media `href` links, and copyright text.
-
+- [ ] **Google Places Reviews (API)**:
+  - Open `src/components/Reviews.tsx` and change the hardcoded `placeId` constant to match the new business's Google Place ID.
+  - The `GOOGLE_PLACES_API_KEY` in your `.env.local` will handle fetching their specific 5-star reviews automatically.
 ---
 
 ## 4. Media Assets & Schedules
@@ -64,7 +66,10 @@ Image manipulation and persistent data structure changes.
 ## 5. Front-End Copywriting
 Run through the static text and update the core content loop.
 
-- [ ] **Homepage (`/src/app/page.tsx`)**: Rewrite the Hero title, Ascension Timeline details, Pricing packages, and Coach profiles.
+- [ ] **Homepage (`/src/app/page.tsx`)**: 
+    - Rewrite the Hero title. 
+    - Rewrite the **Arsenal Section (BJJ, MMA, Kickboxing)** with the new business's specific disciplines. Ensure the copy uses Answer Engine Optimization (AEO) to explicitly define what the disciplines are.
+    - Update Ascension Timeline details, Pricing packages, and Coach profiles.
 - [ ] **Subpages**: 
     - `/about`: Rewrite gym history.
     - `/faqs`: Adapt questions for the new clientele.

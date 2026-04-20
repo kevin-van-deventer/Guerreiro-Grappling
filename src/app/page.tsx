@@ -7,7 +7,7 @@ import { Navbar } from "@/components/Navbar";
 
 export default function HomePage() {
   return (
-    <div className="bg-background text-on-background font-body overflow-x-hidden">
+    <div className="bg-background text-on-background font-body">
       <Navbar />
 
       {/* Hero Section */}
@@ -355,6 +355,87 @@ export default function HomePage() {
               </div>
               <h4 className="font-headline font-black text-xl uppercase tracking-tighter italic">Julian 'The Wall' West</h4>
               <p className="font-label text-[10px] font-bold text-secondary uppercase tracking-widest italic">Technical Director</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Arsenal (Disciplines) Section */}
+      <section className="py-24 md:py-32 bg-background relative overflow-visible">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
+            
+            {/* Sticky Left Column */}
+            <div className="lg:sticky lg:top-32 lg:w-1/3 flex-shrink-0 z-10 space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-1 bg-primary skew-x-[-12deg]"></div>
+                <span className="font-label font-bold text-secondary uppercase tracking-[0.3em] text-xs">The Arsenal</span>
+              </div>
+              <h2 className="text-5xl md:text-7xl font-headline font-black uppercase tracking-tighter leading-[0.9] italic">
+                CHOOSE YOUR <br /><span className="text-white torque-gradient px-2">WEAPON</span>
+              </h2>
+              <p className="text-lg opacity-80 font-medium leading-relaxed max-w-sm pt-4">
+                As Durban's premier combat sports academy, Guerreiro Grappling engineers elite performance. Explore our specialized curriculums designed to forge unbreakable habits, whether you focus on leverage, striking logic, or complete cage control.
+              </p>
+            </div>
+
+            {/* Scrollable Right Column */}
+            <div className="lg:w-2/3 flex flex-col gap-10 md:gap-16 relative z-20">
+              
+              {/* BJJ Card */}
+              <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(0,89,187,0.1)] skew-x-[-2deg] transition-all duration-500 hover:skew-x-0 border-l-[12px] border-primary group">
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Brazilian<br/>Jiu-Jitsu</h3>
+                  <span className="text-primary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">01</span>
+                </div>
+                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">The chess match of human combat.</p>
+                <p className="font-medium text-neutral-600 leading-relaxed mb-8">
+                  BJJ relies on leverage, grip fighting, and submission mechanics rather than brute strength. Perfect for both self-defense and elite competition in Durban, our program builds unbreakable problem-solving skills under pressure.
+                </p>
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
+                  className="font-headline font-black uppercase text-sm tracking-widest text-primary border-b-2 border-primary pb-1 group-hover:pl-4 transition-all"
+                >
+                  Start BJJ Training →
+                </button>
+              </div>
+
+              {/* MMA Card */}
+              <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(255,255,255,0.05)] skew-x-[2deg] transition-all duration-500 hover:skew-x-0 border-r-[12px] border-secondary group relative right-0 lg:-right-8">
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Mixed<br/>Martial Arts</h3>
+                  <span className="text-secondary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">02</span>
+                </div>
+                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">The ultimate proving ground.</p>
+                <p className="font-medium text-neutral-600 leading-relaxed mb-8">
+                  We seamlessly blend striking, wrestling, and submission grappling into a cohesive, cageside-ready system. Whether you're a hobbyist or an aspiring fighter, our MMA curriculum pressure-tests your limits safely.
+                </p>
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
+                  className="font-headline font-black uppercase text-sm tracking-widest text-secondary border-b-2 border-secondary pb-1 group-hover:pr-4 transition-all"
+                >
+                  Start MMA Training →
+                </button>
+              </div>
+
+              {/* Kickboxing Card */}
+              <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(0,89,187,0.1)] skew-x-[-2deg] transition-all duration-500 hover:skew-x-0 border-l-[12px] border-primary group">
+                 <div className="flex justify-between items-start mb-6">
+                  <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Dutch<br/>Kickboxing</h3>
+                  <span className="text-primary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">03</span>
+                </div>
+                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Speed, distance, and concussive power.</p>
+                <p className="font-medium text-neutral-600 leading-relaxed mb-8">
+                  Drawing heavily from Dutch-style kickboxing and Muay Thai fundamentals, our striking classes forge elite cardiovascular conditioning and razor-sharp mechanics. Learn true stand-up discipline without the ego.
+                </p>
+                <button
+                   onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
+                  className="font-headline font-black uppercase text-sm tracking-widest text-primary border-b-2 border-primary pb-1 group-hover:pl-4 transition-all"
+                >
+                  Start Striking →
+                </button>
+              </div>
+
             </div>
           </div>
         </div>
