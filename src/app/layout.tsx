@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Manrope, Lexend } from "next/font/google";
 import { LeadModal } from "@/components/LeadModal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import Reviews from "@/components/Reviews";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -223,7 +222,6 @@ export default function RootLayout({
         </div>
         <LeadModal />
         <WhatsAppButton />
-        <Reviews />
         <Footer />
       </body>
     </html>
