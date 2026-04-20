@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+
 import { Lock, Unlock, Plus, Trash2, Save, X, Edit3, Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -69,7 +69,7 @@ export default function SchedulePage() {
   }, []);
 
   const handleLogin = () => {
-    if (password === "gg2024") {
+    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
       setIsAdmin(true);
       setShowLogin(false);
       setPassword("");
@@ -425,7 +425,7 @@ export default function SchedulePage() {
         )}
       </AnimatePresence>
 
-      <Footer />
+
     </main>
   );
 }

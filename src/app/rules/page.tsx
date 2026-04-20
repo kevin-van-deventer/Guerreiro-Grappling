@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+
 import { ShieldAlert, Droplets, UserCheck, Scale, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -118,7 +118,7 @@ export default function RulesPage() {
         </div>
       </section>
 
-      <Footer />
+
     </main>
   );
 }

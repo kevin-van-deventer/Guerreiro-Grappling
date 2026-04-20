@@ -17,8 +17,9 @@ export async function getSchedule() {
 }
 
 export async function updateSchedule(newSchedule: any[], password?: string) {
-  // Simple server-side validation
-  if (password !== "gg2024") {
+  // Simple server-side validation against env vars
+  const validPassword = process.env.ADMIN_PASSWORD || process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+  if (!password || password !== validPassword) {
     throw new Error("Unauthorized: Invalid admin key.");
   }
 

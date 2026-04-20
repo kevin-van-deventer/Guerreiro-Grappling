@@ -71,12 +71,12 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link
-            href="/contact"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
             className="torque-gradient text-white font-headline font-black px-6 py-2 skew-x-[-12deg] hover:skew-x-0 transition-kinetic text-sm uppercase"
           >
             Join the Fold
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Toggle */}
@@ -106,13 +106,15 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            onClick={() => setIsOpen(false)}
-            className="torque-gradient text-white font-headline font-black px-8 py-4 text-center text-xl skew-x-[-6deg] hover:skew-x-0 transition-kinetic uppercase"
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              window.dispatchEvent(new CustomEvent("open-lead-modal"));
+            }}
+            className="torque-gradient text-white font-headline font-black px-8 py-4 text-center text-xl skew-x-[-6deg] hover:skew-x-0 transition-kinetic uppercase w-full"
           >
             Start Your Journey
-          </Link>
+          </button>
         </div>
       </div>
     </nav>

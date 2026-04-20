@@ -194,6 +194,8 @@ const jsonLd = {
   ],
 };
 
+import { Footer } from "@/components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -213,11 +215,14 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${manrope.variable} ${lexend.variable} min-h-full flex flex-col`}
+        className={`${spaceGrotesk.variable} ${manrope.variable} ${lexend.variable} min-h-full flex flex-col pt-[72px] lg:pt-[88px]`}
       >
-        {children}
+        <div className="flex-grow flex flex-col">
+          {children}
+        </div>
         <LeadModal />
         <WhatsAppButton />
+        <Footer />
       </body>
     </html>
   );

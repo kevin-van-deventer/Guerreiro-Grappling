@@ -9,17 +9,25 @@ export const LeadModal = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    // Check if shown in this session
+    // 1. Listen for custom events to explicitly open modal
+    const handleOpenModal = () => setIsOpen(true);
+    window.addEventListener("open-lead-modal", handleOpenModal);
+
+    // 2. Check if shown in this session (auto-open logic)
     const hasBeenShown = sessionStorage.getItem("gg-lead-modal-shown");
+    let timer: NodeJS.Timeout;
     
     if (!hasBeenShown) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setIsOpen(true);
         sessionStorage.setItem("gg-lead-modal-shown", "true");
       }, 10000); // 10 seconds
-
-      return () => clearTimeout(timer);
     }
+
+    return () => {
+      window.removeEventListener("open-lead-modal", handleOpenModal);
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {

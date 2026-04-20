@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+
 import { Zap } from "lucide-react";
 
 
@@ -71,19 +71,19 @@ export default function ClassesPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
-                  className="block text-center bg-white text-black font-headline font-black px-8 py-5 text-xl skew-x-[8deg] hover:bg-primary hover:text-white transition-kinetic uppercase shadow-[8px_8px_0px_0px_rgba(0,89,187,0.3)] mt-auto"
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
+                  className="block w-full text-center bg-white text-black font-headline font-black px-8 py-5 text-xl skew-x-[8deg] hover:bg-primary hover:text-white transition-kinetic uppercase shadow-[8px_8px_0px_0px_rgba(0,89,187,0.3)] mt-auto"
                 >
                   Join the Tribe
-                </Link>
+                </button>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <Footer />
+
     </main>
   );
 }

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+
 import { Plus, Minus, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -122,7 +122,7 @@ export default function FAQsPage() {
         </div>
       </section>
 
-      <Footer />
+
     </main>
   );
 }

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+
 import { cn } from "@/lib/utils";
 
 const coaches = [
@@ -118,7 +118,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
+
     </main>
   );
 }

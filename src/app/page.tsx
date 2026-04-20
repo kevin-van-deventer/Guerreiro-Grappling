@@ -11,28 +11,31 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 md:pt-40 md:pb-32 px-4 md:px-8 overflow-hidden">
+      <section className="relative min-h-[90vh] md:min-h-[85vh] lg:min-h-[100vh] flex items-center pt-28 pb-10 md:pt-[104px] md:pb-12 px-4 md:px-8 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none select-none flex items-center justify-center">
           <span className="font-headline font-black text-[30vw] leading-none tracking-tighter text-on-surface select-none uppercase">FLOW</span>
         </div>
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
-          <div className="space-y-10">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+          <div className="space-y-6 md:space-y-8">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-headline font-black leading-[0.95] tracking-tighter uppercase">
               DURBAN&apos;S PREMIER <br /> <span className="text-primary italic">BJJ</span> GYM
             </h1>
-            <p className="text-lg md:text-xl max-w-lg opacity-80 font-medium">
+            <p className="text-base md:text-lg max-w-lg opacity-80 font-medium leading-relaxed">
               Brazilian Jiu-Jitsu, MMA &amp; Kickboxing in Gillitts, Durban. At Guerreiro Grappling, we engineer kinetic mastery through disciplined motion &mdash; for beginners, competitors, and kids (ages 7–14). Serving Kloof, Hillcrest, Winston Park &amp; Waterfall.
             </p>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <button className="torque-gradient text-on-primary px-8 md:px-10 py-4 md:py-5 font-headline font-black text-lg md:text-xl skew-x-[-12deg] hover:skew-x-0 transition-all uppercase shadow-[8px_8px_0px_0px_rgba(0,89,187,0.3)] w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
+                className="torque-gradient text-white px-8 py-4 font-headline font-black text-lg md:text-xl skew-x-[-12deg] hover:skew-x-0 transition-all uppercase shadow-[6px_6px_0px_0px_rgba(0,89,187,0.3)] w-full sm:w-auto active:translate-y-1 active:shadow-none"
+              >
                 START YOUR JOURNEY
               </button>
-              <button className="font-headline font-bold border-b-4 border-primary pb-1 hover:text-primary transition-colors uppercase skew-x-[-12deg] hover:skew-x-0">
+              <button className="font-headline font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors uppercase skew-x-[-12deg] hover:skew-x-0 mt-2 sm:mt-0">
                 VIEW PROGRAMS
               </button>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative max-w-[320px] md:max-w-md lg:max-w-[480px] mx-auto w-full mt-6 lg:mt-0">
             <div className="aspect-square bg-surface-container relative rotate-2 overflow-hidden border-4 md:border-8 border-white shadow-2xl">
               <img 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
@@ -40,8 +43,8 @@ export default function HomePage() {
                 alt="Jiu Jitsu Action"
               />
             </div>
-            <div className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 w-32 h-32 md:w-48 md:h-48 bg-secondary skew-x-[-12deg] flex items-center justify-center p-4 shadow-xl z-20">
-              <span className="font-headline font-black text-white text-center leading-tight text-xs md:text-base uppercase tracking-tighter">ESTABLISHED <br /> MMXXIV</span>
+            <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-28 h-28 md:w-40 md:h-40 bg-secondary skew-x-[-12deg] flex items-center justify-center p-3 shadow-xl z-20">
+              <span className="font-headline font-black text-white text-center leading-tight text-xs md:text-sm uppercase tracking-tighter">ESTABLISHED <br /> MMXXIV</span>
             </div>
           </div>
         </div>
@@ -299,16 +302,16 @@ export default function HomePage() {
                 </ul>
 
                 {/* CTA */}
-                <Link
-                  href="/contact"
-                  className={`block text-center font-headline font-black text-xs uppercase tracking-widest px-4 py-4 transition-all duration-300 shadow-lg ${
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
+                  className={`block w-full text-center font-headline font-black text-xs uppercase tracking-widest px-4 py-4 transition-all duration-300 shadow-lg ${
                     tier.highlight
                       ? "bg-white text-primary hover:bg-neutral-100"
                       : "bg-neutral-900 text-white hover:bg-primary dark:bg-white dark:text-neutral-900 dark:hover:bg-primary dark:hover:text-white"
                   }`}
                 >
                   Get Started
-                </Link>
+                </button>
               </motion.div>
             ))}
           </div>
@@ -367,27 +370,14 @@ export default function HomePage() {
           <p className="text-lg md:text-xl mb-12 opacity-80 font-medium max-w-2xl mx-auto italic">
             Stop watching from the sidelines. Step into Guerreiro Grappling and experience the evolution of your own potential. Limited memberships available for this season.
           </p>
-          <button className="torque-gradient text-on-primary px-8 md:px-16 py-6 md:py-8 font-headline font-black text-2xl md:text-3xl skew-x-[-12deg] hover:skew-x-0 transition-all uppercase shadow-[12px_12px_0px_0px_rgba(255,255,255,0.1)] w-full sm:w-auto">
+          <button 
+            onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
+            className="torque-gradient text-white py-6 md:py-8 px-8 md:px-16 font-headline font-black text-2xl md:text-3xl skew-x-[-12deg] hover:skew-x-0 transition-all uppercase shadow-[12px_12px_0px_0px_rgba(255,255,255,0.1)] w-full sm:w-auto active:translate-y-1 active:shadow-none"
+          >
             CLAIM YOUR MAT SPACE
           </button>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full border-t-8 border-blue-600 bg-neutral-50 dark:bg-neutral-950 py-12 px-4 md:px-8">
-        <div className="space-y-4">
-          <div className="text-xl font-black text-black dark:text-white font-headline">GUERREIRO GRAPPLING</div>
-          <p className="font-body text-xs tracking-wide uppercase text-neutral-500 italic">BJJ &bull; MMA &bull; Kickboxing &bull; Gillitts, Durban</p>
-          <p className="font-body text-xs tracking-wide uppercase text-neutral-500 italic">6 Old Main Road, Hamilton Cres, Gillitts, Durban 3610</p>
-          <p className="font-body text-xs tracking-wide uppercase text-neutral-500 italic">&copy; 2024 Guerreiro Grappling. All Rights Reserved.</p>
-        </div>
-        <div className="flex flex-wrap gap-4 md:gap-8 md:justify-end">
-          <a className="font-body text-xs tracking-wide uppercase text-neutral-500 hover:text-black dark:hover:text-white hover:underline decoration-2 underline-offset-4 decoration-blue-600" href="#">Privacy Policy</a>
-          <a className="font-body text-xs tracking-wide uppercase text-neutral-500 hover:text-black dark:hover:text-white hover:underline decoration-2 underline-offset-4 decoration-blue-600" href="#">Terms of Service</a>
-          <a className="font-body text-xs tracking-wide uppercase text-neutral-500 hover:text-black dark:hover:text-white hover:underline decoration-2 underline-offset-4 decoration-blue-600" href="#">Affiliate Program</a>
-          <a className="font-body text-xs tracking-wide uppercase text-neutral-500 hover:text-black dark:hover:text-white hover:underline decoration-2 underline-offset-4 decoration-blue-600" href="#">Contact</a>
-        </div>
-      </footer>
     </div>
   );
 }

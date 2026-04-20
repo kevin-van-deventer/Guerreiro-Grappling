@@ -203,12 +203,12 @@ export function Footer() {
             <p className="font-headline font-black text-xl uppercase tracking-tight text-white">Ready to start your journey?</p>
             <p className="text-sm text-white/50 mt-1">Join Durban&apos;s fastest-growing grappling academy in Gillitts.</p>
           </div>
-          <Link
-            href="/contact"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
             className="flex-shrink-0 bg-primary text-white font-headline font-black text-sm uppercase tracking-widest px-8 py-4 hover:bg-white hover:text-primary transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]"
           >
             Book a Free Trial
-          </Link>
+          </button>
         </div>
 
         {/* ── Bottom bar ── */}

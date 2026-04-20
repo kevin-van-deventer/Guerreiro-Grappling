@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+
 import { Phone, Mail, MapPin, Globe, MessageCircle, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -128,7 +128,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
+
     </main>
   );
 }
