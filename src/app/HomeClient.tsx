@@ -234,7 +234,7 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24 md:py-32 bg-background relative diagonal-divider-top overflow-hidden">
+      <section className="py-24 md:py-32 bg-background relative md:[clip-path:polygon(0_0,100%_10%,100%_100%,0_100%)] overflow-hidden">
         <div className="absolute inset-0 torque-gradient opacity-[0.03] skew-y-12 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
 
@@ -361,7 +361,7 @@ export default function HomePage() {
       </section>
 
       {/* The Arsenal (Disciplines) Section */}
-      <section className="py-24 md:py-32 bg-background relative overflow-visible">
+      <section className="py-24 md:py-32 bg-background relative overflow-x-clip overflow-y-visible">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
             
@@ -371,8 +371,8 @@ export default function HomePage() {
                 <div className="w-12 h-1 bg-primary skew-x-[-12deg]"></div>
                 <span className="font-label font-bold text-secondary uppercase tracking-[0.3em] text-xs">The Arsenal</span>
               </div>
-              <h2 className="text-5xl md:text-7xl font-headline font-black uppercase tracking-tighter leading-[0.9] italic">
-                CHOOSE YOUR <br /><span className="text-white torque-gradient px-2">WEAPON</span>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-headline font-black uppercase tracking-tighter leading-[0.9] italic hyphens-auto">
+                CHOOSE YOUR <br /><span className="text-white torque-gradient px-1">WEAPON</span>
               </h2>
               <p className="text-lg opacity-80 font-medium leading-relaxed max-w-sm pt-4">
                 As Durban's premier combat sports academy, Guerreiro Grappling engineers elite performance. Explore our specialized curriculums designed to forge unbreakable habits, whether you focus on leverage, striking logic, or complete cage control.

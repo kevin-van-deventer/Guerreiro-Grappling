@@ -14,7 +14,7 @@ async function getReviews() {
   try {
     const res = await fetch(
       `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`, 
-      { next: { revalidate: 86400 } } // Extremely aggressive caching (1 day) to protect API limits
+      { next: { revalidate: 604800 } } // Extremely aggressive caching (7 days) to protect API limits
     );
     const data = await res.json();
     

@@ -88,7 +88,7 @@ To run this repository locally:
 - [x] Processed and integrated complete multi-platform Favicon setup (Apple Touch, Manifest, Android).
 - [x] Implemented global multi-column footer matrix across all subpages cleanly via layout wrappers.
 - [x] Designed and integrated the highly-kinetic 'Arsenal' Split-Screen SEO section to maximize AEO/SEO text indexing explicitly targeting 'BJJ Durban' queries.
-- [x] Built the Live Google Places API Server Component to fetch and display the highest 4 & 5-star venue reviews in an infinite auto-scrolling marquee (with strict 24-hr caching).
+- [x] Built the Live Google Places API Server Component to fetch and display the highest 4 & 5-star venue reviews in an infinite auto-scrolling marquee (with strict 7-day TTL server caching).
 - [x] Restructured core App Pages into dedicated Next.js Client modules (`HomeClient`, `AboutClient`) securely nestled under Server Component endpoints. This prevents API over-fetching and strictly prevents Google API Keys from ever entering the Client DOM.
 - [x] Integrated raw SVG paths for Facebook and Instagram natively into the Global Footer, bypassing outdated `lucide-react` legacy limits and fully adopting the new Kinetic design hover-box styling perfectly.
 
