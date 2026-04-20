@@ -43,7 +43,8 @@ Crucial updates to ensure leads flow to the correct individual.
 - [ ] **Lead Form Connections**:
   - Integrate a database/email hook (e.g., Resend, Formspree) into the `handleSubmit` functions inside `src/components/LeadModal.tsx` and the Contact Page (`src/app/contact/page.tsx`).
 - [ ] **Footer Assets**:
-  - Open `src/components/Footer.tsx`. Update the hardcoded physical address, email, social media `href` links, and copyright text.
+  - Open `src/components/Footer.tsx`. Update the hardcoded physical address, email, and copyright text.
+  - Check the `SOCIAL` array at the top of the file to swap the exact `href` URLs for Facebook, Instagram, and WhatsApp. *Note: Facebook and Instagram are hardcoded raw SVGs inside this array to bypass outdated dependency limits.*
 - [ ] **Google Places Reviews (API)**:
   - Open `src/components/Reviews.tsx` and change the hardcoded `placeId` constant to match the new business's Google Place ID.
   - The `GOOGLE_PLACES_API_KEY` in your `.env.local` will handle fetching their specific 5-star reviews automatically.
