@@ -49,6 +49,8 @@ Crucial updates to ensure leads flow to the correct individual.
   - Open `src/components/Reviews.tsx` and change the hardcoded `placeId` constant to match the new business's Google Place ID.
   - The `GOOGLE_PLACES_API_KEY` in your `.env.local` will handle fetching their specific 5-star reviews automatically.
   - *IMPORTANT PROTOCOL*: To preserve API billing and guarantee instant load times, the `fetch` function is hardcoded with `{ next: { revalidate: 604800 } }`. This means Next.js will only fetch live reviews from Google **once every 7 days**. If you receive a new 5-star review, it will take up to a week to appear organically unless you force-clear the Next.js cache.
+- [ ] **Performance & JS Tree-Shaking**:
+  - The `LeadModal` and `WhatsAppButton` global components are explicitly deferred using Next.js `next/dynamic` inside `src/app/layout.tsx`. If you build new heavy components (like popups or large animations) that do not appear immediately "above the fold", ensure you import them dynamically using `const Component = dynamic(() => import(...))` to preserve the ultra-low First Load JS payload.
 ---
 
 ## 4. Media Assets & Schedules

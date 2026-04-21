@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Manrope, Lexend } from "next/font/google";
-import { LeadModal } from "@/components/LeadModal";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import dynamic from "next/dynamic";
+
+const LeadModal = dynamic(() => import("@/components/LeadModal").then(mod => mod.LeadModal));
+const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton").then(mod => mod.WhatsAppButton));
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({

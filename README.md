@@ -91,6 +91,7 @@ To run this repository locally:
 - [x] Built the Live Google Places API Server Component to fetch and display the highest 4 & 5-star venue reviews in an infinite auto-scrolling marquee (with strict 7-day TTL server caching).
 - [x] Restructured core App Pages into dedicated Next.js Client modules (`HomeClient`, `AboutClient`) securely nestled under Server Component endpoints. This prevents API over-fetching and strictly prevents Google API Keys from ever entering the Client DOM.
 - [x] Integrated raw SVG paths for Facebook and Instagram natively into the Global Footer, bypassing outdated `lucide-react` legacy limits and fully adopting the new Kinetic design hover-box styling perfectly.
+- [x] Optimized core Web Vitals by heavily deferring the "First Load JS" payload. The `LeadModal` and `WhatsAppButton` client components are now lazily loaded using `next/dynamic` tree-shaking within `layout.tsx`.
 
 ### Pending Deployment & Verification (TODO)
 - [ ] **Lead Form Engine**: Connect email address ingestion for the Lead Form submissions (e.g., via Resend/Nodemailer/Formspree).
