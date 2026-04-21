@@ -108,9 +108,9 @@ export function Footer() {
 
           {/* ── Column 2 · Navigation ── */}
           <div className="space-y-6">
-            <h4 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
+            <h3 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
               Navigate
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -128,9 +128,9 @@ export function Footer() {
 
           {/* ── Column 3 · Classes ── */}
           <div className="space-y-6">
-            <h4 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
+            <h3 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
               Classes
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {CLASSES.map((cls) => (
                 <li key={cls}>
@@ -148,9 +148,9 @@ export function Footer() {
 
           {/* ── Column 4 · Contact & Hours ── */}
           <div className="space-y-6">
-            <h4 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
+            <h3 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
               Find Us
-            </h4>
+            </h3>
             <ul className="space-y-5">
               <li>
                 <a

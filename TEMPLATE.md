@@ -18,6 +18,11 @@ The absolute first step is migrating the metadata so Google understands exactly 
   - Generate a new favicon package.
   - Replace all icons in the `/public` folder (`favicon.ico`, `icon.png`, `apple-touch-icon.png`).
   - Update the `name` and `short_name` fields in `/public/site.webmanifest`.
+- [ ] **FAQ Schema & Images**:
+  - Sync the `FAQPage` schema in `layout.tsx` to match the brand's specific FAQ text.
+  - Manually audit all `img` tags in `HomeClient.tsx` to ensure alt-tags contain localized regional keywords (e.g., swapping "Durban" for "Cape Town").
+- [ ] **AI Search Readiness (`llms.txt`)**:
+  - Update `/public/llms.txt` with the new business's text-only profile for AI crawlers.
 
 ---
 

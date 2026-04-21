@@ -1,11 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 
 export default function HomePage() {
+  const dualityRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: dualityRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Roll Animations for Duality section
+  const leftX = useTransform(scrollYProgress, [0, 0.5, 1], ["-120%", "0%", "-120%"]);
+  const leftRotate = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [-180, -2, -2, -180]);
+  
+  const rightX = useTransform(scrollYProgress, [0, 0.5, 1], ["-150%", "0%", "-150%"]);
+  const rightRotate = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [-360, 2, 2, -360]);
+
   return (
     <div className="bg-background text-on-background font-body">
       <Navbar />
@@ -40,7 +53,7 @@ export default function HomePage() {
               <img 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8w4uHNH31YXjIofepWciMWM-MS3JzU65mKIcfAqg7AU6fvfBPlq-Axf4k7vD-V4haI5l09Q0JGZQggCb-8uLEgf-QWQCZLEmL-aoN6gngoCOuvQXXBSq1i8fwDD9KmlbgkdczprgJHy-2xvAwJfrPHbc6vrCCtsm5-xDX5IaFw_TdDqY9_ue6DXxeVb3sy3E5ZQNnwvjroth3KH1qseU70hf6wGlVB_oUIbutassHt0B0qtVpDJjrVvLm8dYruhNNQoT6R_C7qpDs" 
-                alt="Jiu Jitsu Action"
+                alt="High-level Brazilian Jiu-Jitsu training on the mats at Guerreiro Grappling in Gillitts, Durban"
               />
             </div>
             <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-28 h-28 md:w-40 md:h-40 bg-secondary skew-x-[-12deg] flex items-center justify-center p-3 shadow-xl z-20">
@@ -51,12 +64,22 @@ export default function HomePage() {
       </section>
 
       {/* Flexibility & Power Section */}
-      <section className="py-16 md:py-24 bg-surface-container-low relative diagonal-divider-top">
+      <section ref={dualityRef} className="py-16 md:py-24 bg-surface-container-low relative diagonal-divider-top overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center py-12">
           <div className="order-2 md:order-1 relative">
             <div className="grid grid-cols-2 gap-4 md:gap-6">
-              <img className="w-full h-48 md:h-64 object-cover -rotate-2 border-4 border-white shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbrInajy-N9sldJMErvdgJJjtu1MQT6meOKDr9WYs44d5HXVRykVPF7oWmAwP5g2WpX-wlOvyFtCu8yBcGYY8uuCsIaFtenJWj4_EKSU-GHF778hLElpDE1QHZNnulXhxMbhyK96_3ErhYbWph85dc5548A7zFjIoPed1r2eYnxjUN9UDLMg3y8BhK9ovdp4lieq6jNilOwPaZQ3MdAEgvajcczQQ2DprpF6qeQoyaaj87D84cLool6UOZt8hsQoyyo20dg6DofEiZ" alt="Training 1" />
-              <img className="w-full h-48 md:h-64 object-cover rotate-2 translate-y-4 md:translate-y-8 border-4 border-white shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRsnk9LnVRETZi0ELuA7-H0z-0Cy4i1SzI9nDBFZvHQyQRsFm2gvr7LggujL7L9F1D5XBYQdGDB4Hbs_K9lFES49G0nCwd6fTU1vF9ezy9E6c7y3auLwOs_mnwTCo4kn2JP5tAuqlPoLWMGPfrAxJ6TK0Qz96YeCbPveaoTu5-ODuot0KLuoOJCX4fco6vkm-G2aQiRj0PgC_E5IrFCHF9tPzb3DM3UfxdLJktK3oisv0pNsTQa-a4JNqcNyuBHnm-Y6eRyOh0_e_B" alt="Training 2" />
+              <motion.img 
+                style={{ x: leftX, rotate: leftRotate }}
+                className="w-full h-48 md:h-64 object-cover border-4 border-white shadow-lg" 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbrInajy-N9sldJMErvdgJJjtu1MQT6meOKDr9WYs44d5HXVRykVPF7oWmAwP5g2WpX-wlOvyFtCu8yBcGYY8uuCsIaFtenJWj4_EKSU-GHF778hLElpDE1QHZNnulXhxMbhyK96_3ErhYbWph85dc5548A7zFjIoPed1r2eYnxjUN9UDLMg3y8BhK9ovdp4lieq6jNilOwPaZQ3MdAEgvajcczQQ2DprpF6qeQoyaaj87D84cLool6UOZt8hsQoyyo20dg6DofEiZ" 
+                alt="Guerreiro Grappling students practicing BJJ drills in Durban" 
+              />
+              <motion.img 
+                style={{ x: rightX, rotate: rightRotate }}
+                className="w-full h-48 md:h-64 object-cover translate-y-4 md:translate-y-8 border-4 border-white shadow-lg" 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRsnk9LnVRETZi0ELuA7-H0z-0Cy4i1SzI9nDBFZvHQyQRsFm2gvr7LggujL7L9F1D5XBYQdGDB4Hbs_K9lFES49G0nCwd6fTU1vF9ezy9E6c7y3auLwOs_mnwTCo4kn2JP5tAuqlPoLWMGPfrAxJ6TK0Qz96YeCbPveaoTu5-ODuot0KLuoOJCX4fco6vkm-G2aQiRj0PgC_E5IrFCHF9tPzb3DM3UfxdLJktK3oisv0pNsTQa-a4JNqcNyuBHnm-Y6eRyOh0_e_B" 
+                alt="Brazilian Jiu-Jitsu sparring session in Gillitts gym" 
+              />
             </div>
           </div>
           <div className="order-1 md:order-2 space-y-6">
@@ -84,7 +107,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
             <div className="group relative overflow-hidden bg-black aspect-[4/5] skew-x-[-2deg] md:skew-x-[-4deg] hover:skew-x-0 transition-all duration-500">
-              <img className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8w4uHNH31YXjIofepWciMWM-MS3JzU65mKIcfAqg7AU6fvfBPlq-Axf4k7vD-V4haI5l09Q0JGZQggCb-8uLEgf-QWQCZLEmL-aoN6gngoCOuvQXXBSq1i8fwDD9KmlbgkdczprgJHy-2xvAwJfrPHbc6vrCCtsm5-xDX5IaFw_TdDqY9_ue6DXxeVb3sy3E5ZQNnwvjroth3KH1qseU70hf6wGlVB_oUIbutassHt0B0qtVpDJjrVvLm8dYruhNNQoT6R_C7qpDs" alt="Joint Locks" />
+              <img className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8w4uHNH31YXjIofepWciMWM-MS3JzU65mKIcfAqg7AU6fvfBPlq-Axf4k7vD-V4haI5l09Q0JGZQggCb-8uLEgf-QWQCZLEmL-aoN6gngoCOuvQXXBSq1i8fwDD9KmlbgkdczprgJHy-2xvAwJfrPHbc6vrCCtsm5-xDX5IaFw_TdDqY9_ue6DXxeVb3sy3E5ZQNnwvjroth3KH1qseU70hf6wGlVB_oUIbutassHt0B0qtVpDJjrVvLm8dYruhNNQoT6R_C7qpDs" alt="Expert joint lock technique demonstrated at BJJ classes in Hillcrest" />
               <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full bg-gradient-to-t from-black/80 to-transparent">
                 <h3 className="text-3xl md:text-4xl font-headline font-black text-white uppercase tracking-tighter font-headline">Joint Locks</h3>
                 <p className="text-white/70 font-label text-[10px] md:text-xs uppercase mt-2">Maximum Efficiency // Minimum Effort</p>
@@ -92,7 +115,7 @@ export default function HomePage() {
             </div>
             {/* Card 2 */}
             <div className="group relative overflow-hidden bg-black aspect-[4/5] skew-x-[2deg] md:skew-x-[4deg] hover:skew-x-0 transition-all duration-500 md:translate-y-8">
-              <img className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbrInajy-N9sldJMErvdgJJjtu1MQT6meOKDr9WYs44d5HXVRykVPF7oWmAwP5g2WpX-wlOvyFtCu8yBcGYY8uuCsIaFtenJWj4_EKSU-GHF778hLElpDE1QHZNnulXhxMbhyK96_3ErhYbWph85dc5548A7zFjIoPed1r2eYnxjUN9UDLMg3y8BhK9ovdp4lieq6jNilOwPaZQ3MdAEgvajcczQQ2DprpF6qeQoyaaj87D84cLool6UOZt8hsQoyyo20dg6DofEiZ" alt="Guard Passing" />
+              <img className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbrInajy-N9sldJMErvdgJJjtu1MQT6meOKDr9WYs44d5HXVRykVPF7oWmAwP5g2WpX-wlOvyFtCu8yBcGYY8uuCsIaFtenJWj4_EKSU-GHF778hLElpDE1QHZNnulXhxMbhyK96_3ErhYbWph85dc5548A7zFjIoPed1r2eYnxjUN9UDLMg3y8BhK9ovdp4lieq6jNilOwPaZQ3MdAEgvajcczQQ2DprpF6qeQoyaaj87D84cLool6UOZt8hsQoyyo20dg6DofEiZ" alt="Advanced guard passing strategy for competitive BJJ in Durban" />
               <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full bg-gradient-to-t from-black/80 to-transparent">
                 <h3 className="text-3xl md:text-4xl font-headline font-black text-white uppercase tracking-tighter">Guard Passing</h3>
                 <p className="text-white/70 font-label text-[10px] md:text-xs uppercase mt-2">Dynamic Pressure // Structural Collapse</p>
@@ -100,7 +123,7 @@ export default function HomePage() {
             </div>
             {/* Card 3 */}
             <div className="group relative overflow-hidden bg-black aspect-[4/5] skew-x-[-2deg] md:skew-x-[-4deg] hover:skew-x-0 transition-all duration-500">
-              <img className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRsnk9LnVRETZi0ELuA7-H0z-0Cy4i1SzI9nDBFZvHQyQRsFm2gvr7LggujL7L9F1D5XBYQdGDB4Hbs_K9lFES49G0nCwd6fTU1vF9ezy9E6c7y3auLwOs_mnwTCo4kn2JP5tAuqlPoLWMGPfrAxJ6TK0Qz96YeCbPveaoTu5-ODuot0KLuoOJCX4fco6vkm-G2aQiRj0PgC_E5IrFCHF9tPzb3DM3UfxdLJktK3oisv0pNsTQa-a4JNqcNyuBHnm-Y6eRyOh0_e_B" alt="Takedowns" />
+              <img className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all grayscale group-hover:grayscale-0 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRsnk9LnVRETZi0ELuA7-H0z-0Cy4i1SzI9nDBFZvHQyQRsFm2gvr7LggujL7L9F1D5XBYQdGDB4Hbs_K9lFES49G0nCwd6fTU1vF9ezy9E6c7y3auLwOs_mnwTCo4kn2JP5tAuqlPoLWMGPfrAxJ6TK0Qz96YeCbPveaoTu5-ODuot0KLuoOJCX4fco6vkm-G2aQiRj0PgC_E5IrFCHF9tPzb3DM3UfxdLJktK3oisv0pNsTQa-a4JNqcNyuBHnm-Y6eRyOh0_e_B" alt="Powerful MMA takedown sequence at Guerreiro Grappling Durban" />
               <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full bg-gradient-to-t from-black/80 to-transparent">
                 <h3 className="text-3xl md:text-4xl font-headline font-black text-white uppercase tracking-tighter">Takedowns</h3>
                 <p className="text-white/70 font-label text-[10px] md:text-xs uppercase mt-2">Violent Intent // Precision Execution</p>
@@ -249,11 +272,11 @@ export default function HomePage() {
           {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3 items-end">
             {[
-              { name: "MMA",          price: "600",   features: ["MMA Fundamentals", "Striking & Takedowns", "Clinch Work", "All Levels Welcome"],             highlight: false },
-              { name: "Kickboxing",   price: "600",   features: ["Stand-up Striking", "Pad Work", "Footwork Drills", "All Levels Welcome"],                    highlight: false },
-              { name: "KB & MMA",     price: "800",   features: ["Kickboxing Classes", "MMA Classes", "Cross-Training", "Full Striking System"],               highlight: false },
-              { name: "Grappling",    price: "800",   features: ["BJJ Gi & No-Gi", "Takedowns & Sweeps", "Submission Mastery", "Competition Prep"],            highlight: false },
-              { name: "All Inclusive",price: "1,000", features: ["Every Class Access", "BJJ · MMA · KB", "Junior Classes", "Priority Booking"],               highlight: true  },
+              { name: "Kids (4-7)",   price: "500",   features: ["Coordination & Balance", "Discipline & Respect", "Anti-Bullying System", "Safe Environment"],      highlight: false },
+              { name: "Teens (7-14)", price: "600",   features: ["Self-Defense Skills", "Confidence Building", "Physical Fitness", "Competition Prep"],              highlight: false },
+              { name: "Adult MMA",    price: "600",   features: ["MMA Fundamentals", "Striking & Takedowns", "Clinch Work", "Cardiovascular Health"],                highlight: false },
+              { name: "Adult BJJ",    price: "800",   features: ["BJJ Gi & No-Gi", "Ground Control", "Submission Mastery", "All Levels Welcome"],                    highlight: false },
+              { name: "All Inclusive",price: "1,000", features: ["Every Class Access", "BJJ · MMA · KB", "Priority Booking", "Ultimate Value"],                      highlight: true  },
             ].map((tier, i) => (
               <motion.div
                 key={tier.name}
@@ -323,38 +346,45 @@ export default function HomePage() {
       <section className="py-16 md:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <h2 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter mb-16 text-center">THE ARCHITECTS</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {/* Coach 1 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto">
+            {/* Josh Pretorius */}
             <div className="group cursor-pointer">
-              <div className="aspect-[3/4] overflow-hidden bg-surface-container mb-6 rotate-2 group-hover:rotate-0 transition-transform duration-500 border-4 border-white shadow-xl">
-                <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtNNTE-LDb6ZS_VlVY0FCaK9DIUk2BNLgDmF-g3vJTYu_b9O34aIz1_N7eNQrdbrrjyJzNmLzXaBwYpYghS0d6FDuZQcxNi6EjeLMc9nV4_05sGTMTn-zTJ1ouETr0bhEr9pR0Z546s9-2sZyyiaWx0z0tMVa9ak0LwTc1IvNJLRxcoOalFFWQObGuhjZdRaVLivUNDWlgftH3DYcIlFg9Etc_t6p_xM3WPzVJPVmzEB6Kz0bUYvEg8cYg-NEzPzzYdyxSnP-0_SZe" alt="Coach 1" />
+              <div className="aspect-[3/4] overflow-hidden bg-surface-container mb-6 rotate-2 group-hover:rotate-0 transition-transform duration-500 border-4 border-white shadow-xl relative">
+                <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtNNTE-LDb6ZS_VlVY0FCaK9DIUk2BNLgDmF-g3vJTYu_b9O34aIz1_N7eNQrdbrrjyJzNmLzXaBwYpYghS0d6FDuZQcxNi6EjeLMc9nV4_05sGTMTn-zTJ1ouETr0bhEr9pR0Z546s9-2sZyyiaWx0z0tMVa9ak0LwTc1IvNJLRxcoOalFFWQObGuhjZdRaVLivUNDWlgftH3DYcIlFg9Etc_t6p_xM3WPzVJPVmzEB6Kz0bUYvEg8cYg-NEzPzzYdyxSnP-0_SZe" alt="Josh Pretorius - Head BJJ and MMA Coach at Guerreiro Grappling" />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                  <span className="torque-gradient text-white font-headline font-black px-6 py-2 skew-x-[-12deg] tracking-widest text-xs uppercase shadow-xl border border-white/20 pointer-events-auto">
+                    <a href="https://wa.me/+27824957760" target="_blank" rel="noopener noreferrer">Contact via WhatsApp</a>
+                  </span>
+                </div>
               </div>
-              <h4 className="font-headline font-black text-xl uppercase">Elias Thorne</h4>
-              <p className="font-label text-[10px] font-bold text-secondary uppercase tracking-widest italic">Head Instructor // 3rd Degree</p>
+              <h3 className="font-headline font-black text-2xl uppercase tracking-tighter">Josh Pretorius</h3>
+              <p className="font-label text-[10px] font-bold text-secondary uppercase tracking-widest italic pt-1">Head Coach</p>
             </div>
-            {/* Coach 2 */}
+            {/* Annabelle Slabbert */}
             <div className="group cursor-pointer pt-0 md:pt-12">
-              <div className="aspect-[3/4] overflow-hidden bg-surface-container mb-6 -rotate-2 group-hover:rotate-0 transition-transform duration-500 border-4 border-white shadow-xl">
-                <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdd9d9uDvced2r3B8HWinO7AF3unmGlIDWSa1TG_ACN1H-PL1COxI0MCxmZa_4nxQjWyTpIHKt_jzdLCnSLCp8iYaxSIV7C0otwy7T6TFMIZT2mNLcsBUtYGpAiaI6PI9fPauwoJRmrT1_KTOy5tIEZBkh_AdhWGY8Sly2cdzLwyoxiL_pBfma5BUVLoZNoQ-uQWVqYF52sApBKTuyuZlXNwyLqvifU5j6wZ7UZhMo-Gaprn-ZCdaS6O13Gq9If7fmiGonJv8gdqQP" alt="Coach 2" />
+              <div className="aspect-[3/4] overflow-hidden bg-surface-container mb-6 -rotate-2 group-hover:rotate-0 transition-transform duration-500 border-4 border-white shadow-xl relative">
+                <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdd9d9uDvced2r3B8HWinO7AF3unmGlIDWSa1TG_ACN1H-PL1COxI0MCxmZa_4nxQjWyTpIHKt_jzdLCnSLCp8iYaxSIV7C0otwy7T6TFMIZT2mNLcsBUtYGpAiaI6PI9fPauwoJRmrT1_KTOy5tIEZBkh_AdhWGY8Sly2cdzLwyoxiL_pBfma5BUVLoZNoQ-uQWVqYF52sApBKTuyuZlXNwyLqvifU5j6wZ7UZhMo-Gaprn-ZCdaS6O13Gq9If7fmiGonJv8gdqQP" alt="Annabelle Slabbert - Brazilian Jiu-Jitsu Instructor at Guerreiro Grappling" />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                  <span className="torque-gradient text-white font-headline font-black px-6 py-2 skew-x-[-12deg] tracking-widest text-xs uppercase shadow-xl border border-white/20 pointer-events-auto">
+                    <a href="https://wa.me/+27824957760" target="_blank" rel="noopener noreferrer">Contact via WhatsApp</a>
+                  </span>
+                </div>
               </div>
-              <h4 className="font-headline font-black text-xl uppercase">Sarah 'Viper' Vance</h4>
-              <p className="font-label text-[10px] font-bold text-secondary uppercase tracking-widest italic">No-Gi Specialist</p>
+              <h3 className="font-headline font-black text-2xl uppercase tracking-tighter">Annabelle Slabbert</h3>
+              <p className="font-label text-[10px] font-bold text-primary uppercase tracking-widest italic pt-1">Coach</p>
             </div>
-            {/* Coach 3 */}
+            {/* Juanita Patten */}
             <div className="group cursor-pointer">
-              <div className="aspect-[3/4] overflow-hidden bg-surface-container mb-6 rotate-2 group-hover:rotate-0 transition-transform duration-500 border-4 border-white shadow-xl">
-                <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJuDoZH2-ai2R47f1lyHo-2jbX_p1iHz6LZne0U5KVTp7FqZnM0bABjopY_bl-aCcf81h46to4lrQXmzR5PEa2v_3zsG8ZUAoHVF2csn27Yj5HJ-3Oe_fdRNf0NP-m6zXGOR9-meEsAqqJ1BJEojsyd76g4LX5RE1wIM0HzLqrUdmp06w-4D-uHbCqSkS6CiL0ux0U4DJe7G550qE219cRR1lO8Fd4q7LNL3FOACWFZ_3B5KDK6nqrJoMOO8BypvHnxu_S_vWUoE3f" alt="Coach 3" />
+              <div className="aspect-[3/4] overflow-hidden bg-surface-container mb-6 rotate-2 group-hover:rotate-0 transition-transform duration-500 border-4 border-white shadow-xl relative">
+                <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJuDoZH2-ai2R47f1lyHo-2jbX_p1iHz6LZne0U5KVTp7FqZnM0bABjopY_bl-aCcf81h46to4lrQXmzR5PEa2v_3zsG8ZUAoHVF2csn27Yj5HJ-3Oe_fdRNf0NP-m6zXGOR9-meEsAqqJ1BJEojsyd76g4LX5RE1wIM0HzLqrUdmp06w-4D-uHbCqSkS6CiL0ux0U4DJe7G550qE219cRR1lO8Fd4q7LNL3FOACWFZ_3B5KDK6nqrJoMOO8BypvHnxu_S_vWUoE3f" alt="Juanita Patten - Nomad Jiu Jitsu Coach at Guerreiro Grappling Durban" />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                  <span className="torque-gradient text-white font-headline font-black px-6 py-2 skew-x-[-12deg] tracking-widest text-xs uppercase shadow-xl border border-white/20 pointer-events-auto">
+                    <a href="https://juanitart8b.setmore.com/" target="_blank" rel="noopener noreferrer">Book Waitlist</a>
+                  </span>
+                </div>
               </div>
-              <h4 className="font-headline font-black text-xl uppercase">Marcus Reyes</h4>
-              <p className="font-label text-[10px] font-bold text-secondary uppercase tracking-widest italic">Strength & Mobility</p>
-            </div>
-            {/* Coach 4 */}
-            <div className="group cursor-pointer pt-0 md:pt-12">
-              <div className="aspect-[3/4] overflow-hidden bg-surface-container mb-6 -rotate-2 group-hover:rotate-0 transition-transform duration-500 border-4 border-white shadow-xl">
-                <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZwPxo4PpakpODxWhuPZ2apXgD_cTqmTtoFbb6JbcPz06HyyNCcNrDugT1yKCJqU5AmagZn5J_Hi-9TDzbCg7hJbTN4CTShoXsX0JDHiCpFYDI6YfwP4AYKGGKu-3eNM3mJBgjrwiHJqnkKZDsFVAXAhyIzp84Sbs0Y6d-KI9F0B3G7J8nFpVyeBVQndqO3cqXpVF9UfUJeizqpRH3HDxPiDHSX0WX0KhEjOnRF_fLaY3Tek9P9nKzt0PMakueUreeHYmW_opV2Wkb" alt="Coach 4" />
-              </div>
-              <h4 className="font-headline font-black text-xl uppercase tracking-tighter italic">Julian 'The Wall' West</h4>
-              <p className="font-label text-[10px] font-bold text-secondary uppercase tracking-widest italic">Technical Director</p>
+              <h3 className="font-headline font-black text-2xl uppercase tracking-tighter">Juanita Patten</h3>
+              <p className="font-label text-[10px] font-bold text-secondary uppercase tracking-widest italic pt-1">Coach // @nomad_jiujitsu000</p>
             </div>
           </div>
         </div>
@@ -388,9 +418,9 @@ export default function HomePage() {
                   <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Brazilian<br/>Jiu-Jitsu</h3>
                   <span className="text-primary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">01</span>
                 </div>
-                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">The chess match of human combat.</p>
+                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Leverage Over Brute Strength.</p>
                 <p className="font-medium text-neutral-600 leading-relaxed mb-8">
-                  BJJ relies on leverage, grip fighting, and submission mechanics rather than brute strength. Perfect for both self-defense and elite competition in Durban, our program builds unbreakable problem-solving skills under pressure.
+                  Jiu Jitsu, also known as Brazilian Jiu-Jitsu (BJJ), is a martial art and combat sport that focuses on ground fighting and submission techniques. It emphasizes leverage and technique over brute strength, allowing smaller individuals to overcome larger opponents. The fastest growing sport is here in Hillcrest.
                 </p>
                 <button
                   onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
@@ -400,15 +430,15 @@ export default function HomePage() {
                 </button>
               </div>
 
-              {/* MMA Card */}
+              {/* MMA & Kickboxing Card */}
               <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(255,255,255,0.05)] skew-x-[2deg] transition-all duration-500 hover:skew-x-0 border-r-[12px] border-secondary group relative right-0 lg:-right-8">
                 <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Mixed<br/>Martial Arts</h3>
+                  <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">MMA &<br/>Kickboxing</h3>
                   <span className="text-secondary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">02</span>
                 </div>
-                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">The ultimate proving ground.</p>
+                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Strength, Agility, and Precision.</p>
                 <p className="font-medium text-neutral-600 leading-relaxed mb-8">
-                  We seamlessly blend striking, wrestling, and submission grappling into a cohesive, cageside-ready system. Whether you're a hobbyist or an aspiring fighter, our MMA curriculum pressure-tests your limits safely.
+                  Our MMA and Kickboxing sessions are the perfect way to challenge yourself, get in top shape, and learn powerful self-defense techniques. These dynamic, high-energy combat sports combine cardiovascular conditioning with razor-sharp striking mechanics.
                 </p>
                 <button
                   onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
@@ -418,24 +448,95 @@ export default function HomePage() {
                 </button>
               </div>
 
-              {/* Kickboxing Card */}
+              {/* Kids BJJ Card */}
               <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(0,89,187,0.1)] skew-x-[-2deg] transition-all duration-500 hover:skew-x-0 border-l-[12px] border-primary group">
                  <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Dutch<br/>Kickboxing</h3>
+                  <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Kids<br/>Jiu-Jitsu</h3>
                   <span className="text-primary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">03</span>
                 </div>
-                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Speed, distance, and concussive power.</p>
+                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Anti-Bullying & Discipline.</p>
                 <p className="font-medium text-neutral-600 leading-relaxed mb-8">
-                  Drawing heavily from Dutch-style kickboxing and Muay Thai fundamentals, our striking classes forge elite cardiovascular conditioning and razor-sharp mechanics. Learn true stand-up discipline without the ego.
+                  A specialized program designed to introduce children to the principles and techniques of BJJ in a safe and age-appropriate manner. We focus on building coordination, balance, and flexibility while instilling core values like respect, discipline, and teamwork.
                 </p>
                 <button
                    onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
                   className="font-headline font-black uppercase text-sm tracking-widest text-primary border-b-2 border-primary pb-1 group-hover:pl-4 transition-all"
                 >
-                  Start Striking →
+                  Enroll Your Child →
+                </button>
+              </div>
+              
+              {/* Ladies Only Card */}
+              <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(255,255,255,0.05)] skew-x-[2deg] transition-all duration-500 hover:skew-x-0 border-r-[12px] border-secondary group relative right-0 lg:-right-8">
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Ladies<br/>Only Classes</h3>
+                  <span className="text-secondary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">04</span>
+                </div>
+                <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Empowerment & Self-Defense.</p>
+                <p className="font-medium text-neutral-600 leading-relaxed mb-8">
+                  Designed to create a supportive and empowering environment for women of all skill levels. We actively curate a safe space where women can build confidence, learn highly effective self-defense techniques, and become part of a strong local community.
+                </p>
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
+                  className="font-headline font-black uppercase text-sm tracking-widest text-secondary border-b-2 border-secondary pb-1 group-hover:pr-4 transition-all"
+                >
+                  Join the Community →
                 </button>
               </div>
 
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Yield (Benefits) Section */}
+      <section className="pt-32 pb-24 md:py-32 bg-surface-container-low relative diagonal-divider-top overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05] pointer-events-none mix-blend-multiply"></div>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-2xl md:text-6xl font-headline font-black uppercase tracking-tighter">THE YIELD</h2>
+            <p className="font-label text-secondary font-bold tracking-[0.2em] md:tracking-[0.4em] text-xs md:text-sm">THE ROI ON YOUR PHYSICAL INVESTMENT</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            {/* Card 1 */}
+            <div className="group bg-background p-8 md:p-10 border-l-8 border-primary shadow-lg skew-x-[-2deg] transition-all duration-300 hover:skew-x-0">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="material-symbols-outlined text-4xl text-primary">group</span>
+                <h3 className="text-2xl font-headline font-black uppercase">Amazing People</h3>
+              </div>
+              <p className="opacity-80 font-medium leading-relaxed">
+                You will meet some amazing individuals on this journey. Jits people rock! Earning your stripes builds deep camaraderie and a lifelong, supportive local community.
+              </p>
+            </div>
+            {/* Card 2 */}
+            <div className="group bg-background p-8 md:p-10 border-l-8 border-secondary shadow-lg skew-x-[2deg] transition-all duration-300 hover:skew-x-0">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="material-symbols-outlined text-4xl text-secondary">security</span>
+                <h3 className="text-2xl font-headline font-black uppercase">Self Defence</h3>
+              </div>
+              <p className="opacity-80 font-medium leading-relaxed">
+                Jiu jitsu has incredibly powerful real-world self-defence applications. While 3 classes won't make you indestructible, consistent training engineers a highly capable, confident response to physical threats.
+              </p>
+            </div>
+            {/* Card 3 */}
+            <div className="group bg-background p-8 md:p-10 border-l-8 border-secondary shadow-lg skew-x-[-2deg] transition-all duration-300 hover:skew-x-0">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="material-symbols-outlined text-4xl text-secondary">favorite</span>
+                <h3 className="text-2xl font-headline font-black uppercase">Cardio Engine</h3>
+              </div>
+              <p className="opacity-80 font-medium leading-relaxed">
+                Like any extreme physical exertion, your cardiovascular health and dynamic fitness are bound to improve massively. Rolling builds a gas tank that traditional gym workouts simply cannot match.
+              </p>
+            </div>
+            {/* Card 4 */}
+            <div className="group bg-background p-8 md:p-10 border-l-8 border-primary shadow-lg skew-x-[2deg] transition-all duration-300 hover:skew-x-0">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="material-symbols-outlined text-4xl text-primary">local_fire_department</span>
+                <h3 className="text-2xl font-headline font-black uppercase">Weight Loss</h3>
+              </div>
+              <p className="opacity-80 font-medium leading-relaxed">
+                Many of our members record wonderful weight loss and physical recomposition shifts. Work hard, stay consistent on the mats, and you will see undeniable physical results.
+              </p>
             </div>
           </div>
         </div>
@@ -459,6 +560,151 @@ export default function HomePage() {
           </button>
         </div>
       </section>
+
+      {/* The Interrogation (FAQ) Section */}
+      <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 relative z-10">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-6xl font-headline font-black uppercase tracking-tighter">THE INTERROGATION</h2>
+            <p className="font-label text-primary font-bold tracking-[0.2em] md:tracking-[0.4em] text-xs md:text-sm">FREQUENTLY ASKED QUESTIONS</p>
+          </div>
+          
+          <div className="space-y-4">
+            {/* FAQ 1 */}
+            <details className="group bg-surface-container-low border-l-4 border-primary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[-2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                Is Jiu Jitsu only for young people?
+                <span className="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-primary/20 opacity-80 font-medium leading-relaxed font-body">
+                No. Jiu Jitsu is for all people, all shapes, all sizes and all AGES. The mechanics of leverage allow anyone to excel. Grandmaster Hélio Gracie famously trained and rolled until he was 95 years old!
+              </div>
+            </details>
+
+            {/* FAQ 2 */}
+            <details className="group bg-surface-container-low border-l-4 border-secondary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                Is Jiu Jitsu the same as MMA?
+                <span className="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-secondary/20 opacity-80 font-medium leading-relaxed font-body">
+                No. While it's a foundational and critical skill for Mixed Martial Arts, pure Brazilian Jiu-Jitsu has no kicks or punches. It revolves entirely around mechanical leverage, joint manipulation, and dynamic ground control.
+              </div>
+            </details>
+
+            {/* FAQ 3 */}
+            <details className="group bg-surface-container-low border-l-4 border-primary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[-2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                Is it extremely hard to learn?
+                <span className="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-primary/20 opacity-80 font-medium leading-relaxed font-body">
+                It is a complex art that takes years to truly master, but you will see physical and technical results from early on. You will be able to actively participate and experience the mechanics from day one on the mats.
+              </div>
+            </details>
+
+            {/* FAQ 4 */}
+            <details className="group bg-surface-container-low border-l-4 border-secondary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                Is it dangerous?
+                <span className="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-secondary/20 opacity-80 font-medium leading-relaxed font-body">
+                Like any combat sport, it naturally comes with physical risks. However, BJJ is widely considered one of the safest martial arts because it completely minimizes striking damage and instead focuses on controlled technique and tapping out.
+              </div>
+            </details>
+
+            {/* FAQ 5 */}
+            <details className="group bg-surface-container-low border-l-4 border-primary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[-2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                Is BJJ 3 times a week enough?
+                <span className="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-primary/20 opacity-80 font-medium leading-relaxed font-body">
+                Yes, three times a week is a sustainable goal for many people. At this rate, you can strike a good balance between improving on the mats and giving your body time to recover. Training three times a week is often considered the “sweet spot” for consistent improvement without overwhelming your body or personal schedule.
+              </div>
+            </details>
+
+            {/* FAQ 6 */}
+            <details className="group bg-surface-container-low border-l-4 border-secondary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                What is the 80/20 rule in BJJ?
+                <span className="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-secondary/20 opacity-80 font-medium leading-relaxed font-body">
+                The 80/20 rule in Brazilian Jiu-Jitsu is simply that 80% of success on the mat comes from 20% of techniques. We teach real skills and focus on high-percentage techniques that work most often on the mat and in the real world.
+              </div>
+            </details>
+
+            {/* FAQ 7 */}
+            <details className="group bg-surface-container-low border-l-4 border-primary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[-2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                What is the hardest position to escape?
+                <span className="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-primary/20 opacity-80 font-medium leading-relaxed font-body">
+                Mount and back control are considered the worst positions because they give your opponent the most control and submission opportunities. Learning solid escapes from these positions is crucial.
+              </div>
+            </details>
+
+            {/* FAQ 8 */}
+            <details className="group bg-surface-container-low border-l-4 border-secondary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                Why shower immediately after class?
+                <span className="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-secondary/20 opacity-80 font-medium leading-relaxed font-body">
+                A quick rinse isn't enough—use soap designed to fight bacteria and fungus. Pay extra attention to areas prone to infections: feet, armpits, groin, and hairline. The sooner you shower after class, the better your chances of avoiding skin issues.
+              </div>
+            </details>
+
+            {/* FAQ 9 */}
+            <details className="group bg-surface-container-low border-l-4 border-primary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[-2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                What is not allowed in BJJ?
+                <span className="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-primary/20 opacity-80 font-medium leading-relaxed font-body">
+                Brazilian jiu-jitsu does not allow any striking with the hands or feet. This includes punching, kicking, elbowing, kneeing, and head butting. No eye gouging, biting, or hair pulling. This is a rule that beginners often overlook.
+              </div>
+            </details>
+
+            {/* FAQ 10 */}
+            <details className="group bg-surface-container-low border-l-4 border-secondary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                What is the weakness of Jiu-Jitsu?
+                <span className="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-secondary/20 opacity-80 font-medium leading-relaxed font-body">
+                Without knowing how to combat striking techniques, a BJJ practitioner may struggle to close the gap against a skilled striker. Striking is a fundamental aspect of many martial arts, and its absence in pure sport BJJ can leave practitioners vulnerable in stand-up confrontations.
+              </div>
+            </details>
+
+            {/* FAQ 11 */}
+            <details className="group bg-surface-container-low border-l-4 border-primary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[-2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                What is the most powerful move?
+                <span className="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-primary/20 opacity-80 font-medium leading-relaxed font-body">
+                The Rear Naked Choke is one of the most effective BJJ moves for self-defense. It involves choking the opponent from behind, cutting off their air supply until they submit or lose consciousness.
+              </div>
+            </details>
+
+            {/* FAQ 12 */}
+            <details className="group bg-surface-container-low border-l-4 border-secondary p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-surface-container-low/80 skew-x-[2deg] hover:skew-x-0">
+              <summary className="font-headline font-black text-xl md:text-2xl uppercase tracking-tighter list-none flex justify-between items-center outline-none">
+                Why do kids quit jiu-jitsu?
+                <span className="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+              </summary>
+              <div className="pt-6 mt-6 border-t border-secondary/20 opacity-80 font-medium leading-relaxed font-body">
+                Kids thrive in environments that are dynamic, interactive, and — above all — fun. If classes become repetitive or feel more like a chore than a challenge, young students might disengage. Brazilian Jiu Jitsu, when taught with too much formality or not enough variety, can start to feel monotonous for kids.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

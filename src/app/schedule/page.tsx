@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 
 import { Lock, Unlock, Plus, Trash2, Save, X, Edit3, Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PageHero } from "@/components/PageHero";
 
 // Types
 type Category = "adults" | "ladies" | "juniors" | "private";
@@ -122,23 +123,13 @@ export default function SchedulePage() {
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-40 pb-24 px-6 md:px-12 bg-surface-container relative overflow-hidden">
-        <div className="absolute inset-0 torque-gradient opacity-[0.03] -rotate-12"></div>
-        <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-6xl md:text-9xl font-headline font-black uppercase tracking-tighter italic mb-4"
-          >
-            COMBAT <span className="text-secondary italic">TIMELINE</span>
-          </motion.h1>
-          <div className="h-2 w-32 bg-primary mx-auto mb-8"></div>
-          <p className="font-label font-bold text-primary uppercase tracking-[0.4em] text-sm md:text-base italic">
-            BJJ · No-Gi · MMA · Kickboxing · Gillitts, Durban
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="COMBAT"
+        highlight="TIMELINE"
+        eyebrow="BJJ · No-Gi · MMA · Kickboxing · Gillitts, Durban"
+        ghostWord="TIME"
+        accentColor="bg-primary"
+      />
 
       {/* Schedule Header & Controls */}
       <section className="py-12 bg-surface-container-low border-b border-primary/10">
@@ -193,9 +184,9 @@ export default function SchedulePage() {
                 transition={{ delay: idx * 0.08 }}
                 className="bg-white dark:bg-neutral-900 min-h-[500px] p-6 space-y-8"
               >
-                <h4 className="font-headline font-black text-3xl uppercase border-b-4 border-primary italic pb-2 inline-block">
+                <h3 className="font-headline font-black text-3xl uppercase border-b-4 border-primary italic pb-2 inline-block">
                   {day}
-                </h4>
+                </h3>
 
                 <div className="space-y-4">
                   {schedule.filter(block => block.day === day).map(block => {

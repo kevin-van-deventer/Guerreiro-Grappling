@@ -2,10 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
-
 import { Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero";
 
 
 const tiers = [
@@ -19,23 +19,13 @@ export default function ClassesPage() {
     <main className="min-h-screen">
       <Navbar />
 
-      {/* Header */}
-      <section className="pt-40 pb-24 px-6 md:px-12 bg-surface-container relative overflow-hidden">
-        <div className="absolute inset-0 torque-gradient opacity-[0.03] -rotate-12"></div>
-        <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-6xl md:text-9xl font-headline font-black uppercase tracking-tighter italic mb-4"
-          >
-            COMBAT <span className="text-secondary italic">TIMELINE</span>
-          </motion.h1>
-          <div className="h-2 w-32 bg-primary mx-auto mb-8"></div>
-          <p className="font-label font-bold text-primary uppercase tracking-[0.4em] text-sm md:text-base italic">
-            Engineering Precision Every Session
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="BJJ &"
+        highlight="COMBAT CLASSES"
+        eyebrow="Adults · Kids · Ladies Only · Gillitts, Durban"
+        ghostWord="BJJ"
+        accentColor="bg-secondary"
+      />
 
 
       {/* Pricing Tiers */}

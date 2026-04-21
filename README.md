@@ -92,8 +92,15 @@ To run this repository locally:
 - [x] Restructured core App Pages into dedicated Next.js Client modules (`HomeClient`, `AboutClient`) securely nestled under Server Component endpoints. This prevents API over-fetching and strictly prevents Google API Keys from ever entering the Client DOM.
 - [x] Integrated raw SVG paths for Facebook and Instagram natively into the Global Footer, bypassing outdated `lucide-react` legacy limits and fully adopting the new Kinetic design hover-box styling perfectly.
 - [x] Optimized core Web Vitals by heavily deferring the "First Load JS" payload. The `LeadModal` and `WhatsAppButton` client components are now lazily loaded using `next/dynamic` tree-shaking within `layout.tsx`.
+- [x] Refined all site image alt-tags with high-intent local SEO keywords (Durban, Hillcrest, Gillitts) to target competitive regional Google Image search results.
+- [x] Engineered and injected rich `FAQPage` JSON-LD Schema for all 12 Interrogation FAQs, enabling Google Rich Snippet/People Also Ask (PAA) expansion.
+- [x] Deployed high-performance AI Search Readiness profile (`llms.txt`) in the public directory to optimize for LLM-based search models (Gemini, Perplexity, GPT-4).
+
+- [x] **Heading Hierarchy (A11y)**: Corrected all heading levels sitewide to follow a strictly sequentially-descending order (H1 → H2 → H3 → H4). Fixed across Home, About, Rules, Schedule, FAQs, Footer, and Reviews components.
+- [x] **Mobile Title Clipping**: Fixed 'THE KINETIC FAMILY' and 'THE YIELD' section titles being cut off by diagonal dividers on mobile viewports (padding + font-scale adjustments).
 
 ### Pending Deployment & Verification (TODO)
+- [ ] **Sitewide Visual QA**: Perform a full manual browser walkthrough of ALL pages (Home, About, Rules, Schedule, FAQs, Contact, Classes) on both desktop and mobile viewports to verify no visual regressions, broken images, or console errors remain after the heading hierarchy overhaul.
 - [ ] **Lead Form Engine**: Connect email address ingestion for the Lead Form submissions (e.g., via Resend/Nodemailer/Formspree).
 - [ ] **WhatsApp Sync**: Update WhatsApp predefined message content and test actual device routing.
 - [ ] **Data Audit**: Verify exact schedule times/details are 100% accurate against physical timetable.
@@ -104,3 +111,4 @@ To run this repository locally:
 - [ ] **Network Delivery**: Connect routing to Cloudflare CDN.
 - [ ] **Performance**: Re-verify caching strategies to guarantee split-second delivery.
 - [ ] **DevOps**: Containerize the app with Docker for isolated deployment potential.
+- [ ] **Schema Markups**: Add schema markups to the website.

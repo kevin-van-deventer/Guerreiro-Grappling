@@ -174,6 +174,107 @@ const jsonLd = {
       paymentAccepted: "Cash, Bank Transfer",
     },
     {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Jiu Jitsu only for young people?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Jiu Jitsu is for all people, all shapes, all sizes and all AGES. The mechanics of leverage allow anyone to excel. Grandmaster Hélio Gracie famously trained and rolled until he was 95 years old!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Jiu Jitsu the same as MMA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. While it's a foundational and critical skill for Mixed Martial Arts, pure Brazilian Jiu-Jitsu has no kicks or punches. It revolves entirely around mechanical leverage, joint manipulation, and dynamic ground control."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it extremely hard to learn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a complex art that takes years to truly master, but you will see physical and technical results from early on. You will be able to actively participate and experience the mechanics from day one on the mats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it dangerous?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Like any combat sport, it naturally comes with physical risks. However, BJJ is widely considered one of the safest martial arts because it completely minimizes striking damage and instead focuses on controlled technique and tapping out."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BJJ 3 times a week enough?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, three times a week is a sustainable goal for many people. At this rate, you can strike a good balance between improving on the mats and giving your body time to recover. Training three times a week is often considered the 'sweet spot' for consistent improvement without overwhelming your body or personal schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the 80/20 rule in BJJ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 80/20 rule in Brazilian Jiu-Jitsu is simply that 80% of success on the mat comes from 20% of techniques. We teach real skills and focus on high-percentage techniques that work most often on the mat and in the real world."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the hardest position to escape in BJJ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mount and back control are considered the worst positions because they give your opponent the most control and submission opportunities. Learning solid escapes from these positions is crucial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why shower immediately after BJJ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A quick rinse isn't enough—use soap designed to fight bacteria and fungus. Pay extra attention to areas prone to infections: feet, armpits, groin, and hairline. The sooner you shower after class, the better your chances of avoiding skin issues."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is not allowed in BJJ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Brazilian jiu-jitsu does not allow any striking with the hands or feet. This includes punching, kicking, elbowing, kneeing, and head butting. No eye gouging, biting, or hair pulling. This is a rule that beginners often overlook."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the weakness of Jiu-Jitsu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Without knowing how to combat striking techniques, a BJJ practitioner may struggle to close the gap against a skilled striker. Striking is a fundamental aspect of many martial arts, and its absence in pure sport BJJ can leave practitioners vulnerable in stand-up confrontations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the most powerful move in Jiu-Jitsu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Rear Naked Choke is one of the most effective BJJ moves for self-defense. It involves choking the opponent from behind, cutting off their air supply until they submit or lose consciousness."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do kids quit jiu-jitsu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kids thrive in environments that are dynamic, interactive, and — above all — fun. If classes become repetitive or feel more like a chore than a challenge, young students might disengage. Brazilian Jiu Jitsu, when taught with too much formality or not enough variety, can start to feel monotonous for kids."
+          }
+        }
+      ]
+    },
+    {
       "@type": "WebSite",
       "@id": "https://guerreirograppling.co.za/#website",
       url: "https://guerreirograppling.co.za",

@@ -93,7 +93,7 @@ export default async function Reviews() {
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <h4 className="font-headline font-black text-neutral-950 uppercase text-lg leading-none mb-1">{review.author_name}</h4>
+                  <h3 className="font-headline font-black text-neutral-950 uppercase text-lg leading-none mb-1">{review.author_name}</h3>
                   <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">{review.relative_time_description}</span>
                 </div>
               </div>

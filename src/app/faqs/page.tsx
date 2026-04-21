@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
-
 import { Plus, Minus, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PageHero } from "@/components/PageHero";
 
 const faqs = [
   {
@@ -42,27 +42,21 @@ export default function FAQsPage() {
     <main className="min-h-screen">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-40 pb-24 px-6 md:px-12 bg-surface-container relative overflow-hidden">
-        <div className="absolute inset-0 torque-gradient opacity-[0.03] -rotate-12"></div>
-        <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-6xl md:text-9xl font-headline font-black uppercase tracking-tighter italic mb-4"
-          >
-            INTEL <span className="text-secondary italic">CENTER</span>
-          </motion.h1>
-          <div className="h-2 w-32 bg-primary mx-auto mb-8"></div>
-          <p className="font-label font-bold text-primary uppercase tracking-[0.4em] text-sm md:text-base italic">
-            BJJ Questions Answered · Gillitts, Durban
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="INTEL"
+        highlight="CENTER"
+        eyebrow="BJJ Questions Answered · Gillitts, Durban"
+        ghostWord="FAQ"
+        accentColor="bg-secondary"
+      />
 
       {/* FAQ Accordion */}
       <section className="py-24 md:py-32 px-6 md:px-12 bg-surface-container-low relative diagonal-divider-top">
         <div className="max-w-4xl mx-auto py-12">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-7xl font-headline font-black uppercase tracking-tighter">FREQUENTLY ASKED <span className="text-primary italic">QUESTIONS</span></h2>
+            <p className="font-label font-bold text-secondary uppercase tracking-[0.3em] text-xs">INTEL FOR THE NEW INITIATE</p>
+          </div>
           <div className="space-y-6">
             {faqs.map((faq, idx) => (
               <motion.div 
@@ -80,9 +74,9 @@ export default function FAQsPage() {
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                   className="w-full text-left p-8 flex justify-between items-center gap-6"
                 >
-                  <span className="font-headline font-black text-2xl md:text-3xl uppercase tracking-tighter italic">
+                  <h3 className="font-headline font-black text-2xl md:text-3xl uppercase tracking-tighter italic">
                     {faq.question}
-                  </span>
+                  </h3>
                   <div className="flex-shrink-0">
                     {openIndex === idx ? <Minus className="w-8 h-8 text-primary" /> : <Plus className="w-8 h-8" />}
                   </div>

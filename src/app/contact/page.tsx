@@ -6,30 +6,20 @@ import { Navbar } from "@/components/Navbar";
 
 import { Phone, Mail, MapPin, Globe, MessageCircle, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PageHero } from "@/components/PageHero";
 
 export default function ContactPage() {
   return (
     <main className="min-h-screen">
       <Navbar />
 
-      {/* Header */}
-      <section className="pt-40 pb-20 px-6 md:px-12 bg-foreground text-background relative overflow-hidden">
-        <div className="absolute inset-0 torque-gradient opacity-[0.05] skew-y-6"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="space-y-6"
-          >
-            <h1 className="text-6xl md:text-9xl font-headline font-black uppercase tracking-tighter italic">
-              COMMAND <span className="text-primary italic">CENTER</span>
-            </h1>
-            <p className="text-xl md:text-3xl font-medium opacity-80 max-w-4xl italic">
-              Ready to evolve? Secure your place on the mats or inquire about our specialized combat programs.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        title="COMMAND"
+        highlight="CENTER"
+        eyebrow="Secure Your Spot · Inquire About Programs · Get In Touch"
+        ghostWord="HQ"
+        accentColor="bg-primary"
+      />
 
       {/* Contact Grid */}
       <section className="py-24 md:py-32 px-6 md:px-12 bg-background">
