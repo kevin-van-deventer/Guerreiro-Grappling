@@ -114,12 +114,12 @@ To run this repository locally:
 - [ ] **Schema Markups**: Add schema markups to the website.
 
 - [ ] **Accessibility & Professional Polish (QA)**:
-    - [ ] Interactive controls are keyboard focusable (visible focus rings).
-    - [ ] Interactive elements indicate their purpose and state (aria-labels).
-    - [ ] Logical tab order (follows visual flow).
-    - [ ] Visual order follows DOM order.
-    - [ ] Focus trapping in modals (`LeadModal`, Mobile Menu).
+    - [x] Interactive controls are keyboard focusable (visible focus rings).
+    - [x] Interactive elements indicate their purpose and state (aria-labels).
+    - [x] Logical tab order (follows visual flow).
+    - [x] Visual order follows DOM order.
+    - [x] Focus trapping in modals (`LeadModal`, Mobile Menu, Schedule Modals).
     - [x] HTML5 landmark elements (`main`, `nav`, `footer`).
-    - [ ] Offscreen content hidden from assistive technology (`aria-hidden`).
-    - [ ] Custom controls have associated labels and ARIA roles.
+    - [x] Offscreen content hidden from assistive technology (`aria-hidden`).
+    - [x] Custom controls have associated labels and ARIA roles.
     - [ ] **Visual Audit**: Ensure no section separators/dividers clip titles on mobile viewports.

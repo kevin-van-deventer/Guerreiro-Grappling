@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import { Navbar } from "@/components/Navbar";
 import { Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
@@ -17,7 +16,6 @@ const tiers = [
 export default function ClassesPage() {
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       <PageHero
         title="BJJ &"

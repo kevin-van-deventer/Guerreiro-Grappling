@@ -3,8 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/Navbar";
-
 import { cn } from "@/lib/utils";
 
 const coaches = [
@@ -39,7 +37,6 @@ const belts = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background text-on-background font-body">
-      <Navbar />
 
       {/* Hero Section - Synchronized with Home */}
       <section className="relative min-h-[60vh] md:min-h-[80vh] flex items-center pt-28 pb-10 md:pt-[104px] md:pb-12 px-4 md:px-8 overflow-hidden bg-surface-container">

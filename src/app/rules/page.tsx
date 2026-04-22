@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/Navbar";
 
 import { ShieldAlert, Droplets, UserCheck, Scale, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -54,7 +53,6 @@ const ruleSections = [
 export default function RulesPage() {
   return (
     <div className="min-h-screen bg-background text-on-background font-body">
-      <Navbar />
 
       <PageHero
         title="MAT"

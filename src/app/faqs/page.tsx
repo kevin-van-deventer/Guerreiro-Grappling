@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Navbar } from "@/components/Navbar";
 import { Plus, Minus, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PageHero } from "@/components/PageHero";
@@ -40,7 +39,6 @@ export default function FAQsPage() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       <PageHero
         title="INTEL"
@@ -72,7 +70,10 @@ export default function FAQsPage() {
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                  className="w-full text-left p-8 flex justify-between items-center gap-6"
+                  className="w-full text-left p-8 flex justify-between items-center gap-6 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-white dark:focus-visible:bg-neutral-900 transition-all"
+                  aria-expanded={openIndex === idx}
+                  aria-controls={`faq-content-${idx}`}
+                  id={`faq-button-${idx}`}
                 >
                   <h3 className="font-headline font-black text-2xl md:text-3xl uppercase tracking-tighter italic">
                     {faq.question}
@@ -84,6 +85,9 @@ export default function FAQsPage() {
                 <AnimatePresence>
                   {openIndex === idx && (
                     <motion.div
+                      id={`faq-content-${idx}`}
+                      role="region"
+                      aria-labelledby={`faq-button-${idx}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

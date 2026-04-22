@@ -36,9 +36,59 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isOpen) return;
+
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+
+      if (e.key === "Tab") {
+        const focusableElements = document.querySelectorAll(
+          'nav button, nav a, [tabindex]:not([tabindex="-1"])'
+        );
+        // We only care about elements inside our navigation container
+        const navElements = Array.from(focusableElements).filter(el => 
+          document.querySelector("nav")?.contains(el)
+        );
+
+        if (navElements.length === 0) return;
+
+        const firstElement = navElements[0] as HTMLElement;
+        const lastElement = navElements[navElements.length - 1] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+      // Move focus to first nav link when opening
+      setTimeout(() => {
+        const firstLink = document.querySelector("#mobile-menu a") as HTMLElement;
+        if (firstLink) firstLink.focus();
+      }, 100);
+    } else {
+      window.removeEventListener("keydown", handleKeyDown);
+    }
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <nav
@@ -127,6 +177,7 @@ export function Navbar() {
             exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 top-[72px] h-[calc(100vh-72px)] z-40 bg-neutral-950 flex flex-col px-8 py-10 lg:hidden overflow-y-auto border-t-8 border-primary select-none w-full"
+            id="mobile-menu"
           >
             {/* The diagonal design motif in the background */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none mix-blend-overlay"></div>

@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 const LeadModal = dynamic(() => import("@/components/LeadModal").then(mod => mod.LeadModal));
 const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton").then(mod => mod.WhatsAppButton));
+import { Navbar } from "@/components/Navbar";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -320,7 +321,10 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${manrope.variable} ${lexend.variable} min-h-full flex flex-col pt-[72px] lg:pt-[88px] overflow-x-clip`}
       >
-        <main className="flex-grow flex flex-col">
+        <header>
+          <Navbar />
+        </header>
+        <main id="main-content" className="flex-grow flex flex-col">
           {children}
         </main>
         <LeadModal />

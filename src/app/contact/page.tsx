@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Navbar } from "@/components/Navbar";
 
 import { Phone, Mail, MapPin, Globe, MessageCircle, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -11,7 +10,6 @@ import { PageHero } from "@/components/PageHero";
 export default function ContactPage() {
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       <PageHero
         title="COMMAND"
@@ -40,18 +38,18 @@ export default function ContactPage() {
             <form className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2 group">
-                  <label className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Full Name</label>
-                  <input type="text" placeholder="John 'The Ripper' Doe" className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition- kinetic skew-x-[-3deg] focus:skew-x-0" />
+                  <label htmlFor="contact-name" className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Full Name</label>
+                  <input id="contact-name" type="text" placeholder="John 'The Ripper' Doe" className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-kinetic skew-x-[-3deg] focus:skew-x-0 focus-visible:ring-2 focus-visible:ring-primary" />
                 </div>
                 <div className="space-y-2 group">
-                  <label className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Email Address</label>
-                  <input type="email" placeholder="john@kinetic.co.za" className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-all skew-x-[-3deg] focus:skew-x-0" />
+                  <label htmlFor="contact-email" className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Email Address</label>
+                  <input id="contact-email" type="email" placeholder="john@kinetic.co.za" className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-all skew-x-[-3deg] focus:skew-x-0 focus-visible:ring-2 focus-visible:ring-primary" />
                 </div>
               </div>
 
               <div className="space-y-2 group">
-                <label className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Select Program</label>
-                <select className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-all skew-x-[-3deg] focus:skew-x-0 appearance-none">
+                <label htmlFor="contact-program" className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Select Program</label>
+                <select id="contact-program" className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-all skew-x-[-3deg] focus:skew-x-0 appearance-none focus-visible:ring-2 focus-visible:ring-primary">
                   <option>Brazilian Jiu-Jitsu</option>
                   <option>MMA & Kickboxing</option>
                   <option>Kids Progression</option>
@@ -60,11 +58,11 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-2 group">
-                <label className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Transmission</label>
-                <textarea rows={4} placeholder="Tell us about your combat background or goals..." className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-all skew-x-[-3deg] focus:skew-x-0 resize-none"></textarea>
+                <label htmlFor="contact-message" className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Transmission</label>
+                <textarea id="contact-message" rows={4} placeholder="Tell us about your combat background or goals..." className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-all skew-x-[-3deg] focus:skew-x-0 resize-none focus-visible:ring-2 focus-visible:ring-primary"></textarea>
               </div>
 
-              <button className="torque-gradient text-white w-full py-6 font-headline font-black text-2xl skew-x-[-6deg] hover:skew-x-0 transition-kinetic uppercase shadow-2xl flex items-center justify-center gap-4 group">
+              <button className="torque-gradient text-white w-full py-6 font-headline font-black text-2xl skew-x-[-6deg] hover:skew-x-0 transition-kinetic uppercase shadow-2xl flex items-center justify-center gap-4 group outline-none focus-visible:ring-4 focus-visible:ring-primary/40 focus-visible:skew-x-0">
                 Engage <Send className="w-6 h-6 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
               </button>
             </form>
@@ -81,6 +79,7 @@ export default function ContactPage() {
               <h2 className="text-4xl font-headline font-black uppercase tracking-tighter italic text-right md:text-left">LOCATION HQ</h2>
               <div className="aspect-video w-full bg-neutral-200 border-8 border-white shadow-2xl skew-x-[3deg] relative overflow-hidden group">
                 <iframe 
+                  title="Guerreiro Grappling Location Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.528461538356!2d30.7958444!3d-29.7915222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6fbf3871801fb%3A0x8cc8771275dad9b9!2s9%20Old%20Main%20Rd%2C%20Gillitts%2C%20Durban%2C%203603!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" 
                   className="w-full h-full grayscale group-hover:grayscale-0 transition-kinetic"
                   style={{ border: 0 }} 

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Navbar } from "@/components/Navbar";
 
 import { Lock, Unlock, Plus, Trash2, Save, X, Edit3, Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -119,9 +118,57 @@ export default function SchedulePage() {
     setEditBlock(null);
   };
 
+
+  // Focus Trap for Modals
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!showLogin && !editBlock) return;
+
+      if (e.key === "Escape") {
+        setShowLogin(false);
+        setEditBlock(null);
+      }
+
+      if (e.key === "Tab") {
+        const modalId = showLogin ? "login-modal" : "edit-drawer";
+        const focusableElements = document.querySelectorAll(
+          `#${modalId} button, #${modalId} input, #${modalId} select, #${modalId} textarea, #${modalId} [tabindex]:not([tabindex="-1"])`
+        );
+        const modalContainer = document.getElementById(modalId);
+        const modalElements = Array.from(focusableElements).filter(el => 
+          modalContainer?.contains(el)
+        );
+
+        if (modalElements.length === 0) return;
+
+        const firstElement = modalElements[0] as HTMLElement;
+        const lastElement = modalElements[modalElements.length - 1] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    };
+
+    if (showLogin || editBlock) {
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      window.removeEventListener("keydown", handleKeyDown);
+    }
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [showLogin, editBlock]);
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <Navbar />
 
       <PageHero
         title="COMBAT"
@@ -192,15 +239,16 @@ export default function SchedulePage() {
                   {schedule.filter(block => block.day === day).map(block => {
                     const theme = CATEGORY_THEME[block.category as Category] ?? CATEGORY_THEME.adults;
                     return (
-                      <div
+                      <button
                         key={block.id}
                         className={cn(
-                          "relative p-4 skew-x-[-3deg] border-l-8 transition-kinetic group/item hover:skew-x-0 overflow-hidden shadow-sm",
+                          "relative p-4 skew-x-[-3deg] border-l-8 transition-kinetic group/item hover:skew-x-0 overflow-hidden shadow-sm text-left w-full outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:skew-x-0",
                           theme.border,
                           theme.bg,
                           isAdmin && "cursor-pointer"
                         )}
                         onClick={() => isAdmin && setEditBlock(block)}
+                        aria-label={`${block.day}, ${block.startTime} to ${block.endTime}: ${block.discipline} with ${block.instructor}. ${isAdmin ? 'Click to edit.' : ''}`}
                       >
                         {/* Category badge */}
                         <span className={cn("inline-block px-1.5 py-0.5 text-[9px] font-headline font-black uppercase tracking-widest mb-2 rounded-sm", theme.badge)}>
@@ -221,7 +269,7 @@ export default function SchedulePage() {
                             <Edit3 size={14} className="text-primary" />
                           </div>
                         )}
-                      </div>
+                      </button>
                     );
                   })}
 
@@ -256,6 +304,7 @@ export default function SchedulePage() {
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0.9, rotate: 3 }}
               className="relative w-full max-w-md bg-foreground p-12 text-background shadow-2xl skew-x-[-4deg]"
+              id="login-modal"
             >
               <h3 className="text-4xl font-headline font-black uppercase tracking-tighter italic mb-8 underline decoration-primary decoration-8">Access Verification</h3>
               <div className="space-y-6">
@@ -300,6 +349,7 @@ export default function SchedulePage() {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="relative w-full max-w-md h-full bg-surface-container-lowest shadow-2xl p-8 border-l-8 border-primary overflow-y-auto"
+              id="edit-drawer"
             >
               <div className="flex justify-between items-center mb-12">
                 <h3 className="text-3xl font-headline font-black uppercase italic tracking-tighter">Edit Component</h3>

@@ -95,10 +95,10 @@ Run through the static text and update the core content loop.
 ## 7. Final Accessibility & Visual Polish
 Before handing off the project, perform these final checks:
 
-- [ ] **Interactive Focus**: Verify all buttons, links, and inputs have visible `focus-visible` rings.
-- [ ] **ARIA Labels**: Ensure icon-only buttons (like the menu toggle or social icons) have descriptive `aria-label` attributes.
-- [ ] **Landmarks**: Verify the `<main>` tag is correctly implemented and all pages use semantic tags (`nav`, `footer`).
-- [ ] **Focus Trapping**: Test the `LeadModal` and Mobile Menu with a keyboard to ensure focus does not escape to the background.
-- [ ] **Heading Hierarchy**: Ensure all headings (H1-H6) follow a sequentially-descending order across all pages (H1 → H2 → H3) to maintain accessibility standards.
+- [x] **Interactive Focus**: Verify all buttons, links, and inputs have visible `focus-visible` rings.
+- [x] **ARIA Labels**: Ensure icon-only buttons (like the menu toggle or social icons) have descriptive `aria-label` attributes.
+- [x] **Landmarks**: Verify the `<main>` tag is correctly implemented and all pages use semantic tags (`nav`, `footer`).
+- [x] **Focus Trapping**: Test the `LeadModal` and Mobile Menu with a keyboard to ensure focus does not escape to the background.
+- [x] **Heading Hierarchy**: Ensure all headings (H1-H6) follow a sequentially-descending order across all pages (H1 → H2 → H3) to maintain accessibility standards.
 - [ ] **Visual Audit (Mobile)**: Visit the site on a physical device or mobile emulator. Check every section header to ensure it is not clipped or obscured by the diagonal divider design pattern.
 

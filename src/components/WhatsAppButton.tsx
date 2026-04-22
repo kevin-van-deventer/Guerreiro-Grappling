@@ -33,7 +33,7 @@ export function WhatsAppButton() {
           exit={{ scale: 0, opacity: 0, y: 20 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="fixed bottom-6 right-6 z-[100] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-shadow"
+          className="fixed bottom-6 right-6 z-[100] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-shadow outline-none focus-visible:ring-4 focus-visible:ring-green-400/50 focus-visible:ring-offset-2"
           aria-label="Chat on WhatsApp"
         >
           {/* Official WhatsApp SVG Icon */}
