@@ -38,7 +38,7 @@ const belts = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background text-on-background font-body">
+    <div className="min-h-screen bg-background text-on-background font-body">
       <Navbar />
 
       {/* Hero Section - Synchronized with Home */}
@@ -338,6 +338,6 @@ export default function AboutPage() {
            </button>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

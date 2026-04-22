@@ -54,7 +54,7 @@ const SOCIAL = [
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-950 text-white relative overflow-hidden">
+    <footer aria-label="Site Footer" className="bg-neutral-950 text-white relative overflow-hidden">
 
       {/* Top accent bar */}
       <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent" />
@@ -65,7 +65,11 @@ export function Footer() {
 
           {/* ── Column 1 · Brand ── */}
           <div className="space-y-6 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 group w-fit">
+            <Link 
+              href="/" 
+              className="flex items-center gap-3 group w-fit outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+              aria-label="Guerreiro Grappling Home"
+            >
               <div className="relative w-14 h-14 flex-shrink-0">
                 <Image
                   src="/Guerreiro-Grappling-Logo.png"
@@ -97,8 +101,8 @@ export function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={s.name}
-                  className="w-10 h-10 flex items-center justify-center bg-white/5 hover:bg-primary border border-white/10 hover:border-primary font-headline font-black tracking-widest transition-all duration-300 group-hover/social"
+                  aria-label={`Visit our ${s.name}`}
+                  className="w-10 h-10 flex items-center justify-center bg-white/5 hover:bg-primary border border-white/10 hover:border-primary font-headline font-black tracking-widest transition-all duration-300 group-hover/social outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   {s.icon}
                 </a>
@@ -108,15 +112,15 @@ export function Footer() {
 
           {/* ── Column 2 · Navigation ── */}
           <div className="space-y-6">
-            <h3 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
+            <h2 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
               Navigate
-            </h3>
+            </h2>
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="flex items-center gap-2 text-sm font-headline font-bold uppercase tracking-tight text-white/50 hover:text-white hover:translate-x-1 transition-all duration-200 group"
+                    className="flex items-center gap-2 text-sm font-headline font-bold uppercase tracking-tight text-white/50 hover:text-white hover:translate-x-1 transition-all duration-200 group outline-none focus-visible:text-white"
                   >
                     <span className="w-1 h-1 bg-primary group-hover:w-3 transition-all duration-300 flex-shrink-0" />
                     {link.name}
@@ -128,15 +132,15 @@ export function Footer() {
 
           {/* ── Column 3 · Classes ── */}
           <div className="space-y-6">
-            <h3 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
+            <h2 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
               Classes
-            </h3>
+            </h2>
             <ul className="space-y-3">
               {CLASSES.map((cls) => (
                 <li key={cls}>
                   <Link
                     href="/schedule"
-                    className="flex items-center gap-2 text-sm font-headline font-bold uppercase tracking-tight text-white/50 hover:text-white hover:translate-x-1 transition-all duration-200 group"
+                    className="flex items-center gap-2 text-sm font-headline font-bold uppercase tracking-tight text-white/50 hover:text-white hover:translate-x-1 transition-all duration-200 group outline-none focus-visible:text-white"
                   >
                     <span className="w-1 h-1 bg-secondary group-hover:w-3 transition-all duration-300 flex-shrink-0" />
                     {cls}
@@ -148,14 +152,14 @@ export function Footer() {
 
           {/* ── Column 4 · Contact & Hours ── */}
           <div className="space-y-6">
-            <h3 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
+            <h2 className="font-headline font-black text-xs uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-3">
               Find Us
-            </h3>
+            </h2>
             <ul className="space-y-5">
               <li>
                 <a
                   href="tel:+27824957760"
-                  className="flex items-start gap-3 group"
+                  className="flex items-start gap-3 group outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-neutral-950 p-2 -m-2 rounded-lg"
                 >
                   <div className="w-8 h-8 bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary transition-colors">
                     <Phone size={14} className="text-primary group-hover:text-white transition-colors" />
@@ -170,7 +174,7 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:info@guerreirograppling.co.za"
-                  className="flex items-start gap-3 group"
+                  className="flex items-start gap-3 group outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-neutral-950 p-2 -m-2 rounded-lg"
                 >
                   <div className="w-8 h-8 bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary transition-colors">
                     <Mail size={14} className="text-primary group-hover:text-white transition-colors" />
@@ -187,7 +191,7 @@ export function Footer() {
                   href="https://maps.google.com/?q=6+Old+Main+Road+Gillitts+Hamilton+Park+Durban+3610"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 group"
+                  className="flex items-start gap-3 group outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-neutral-950 p-2 -m-2 rounded-lg"
                 >
                   <div className="w-8 h-8 bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary transition-colors">
                     <MapPin size={14} className="text-primary group-hover:text-white transition-colors" />
@@ -227,7 +231,7 @@ export function Footer() {
           </div>
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
-            className="flex-shrink-0 bg-primary text-white font-headline font-black text-sm uppercase tracking-widest px-8 py-4 hover:bg-white hover:text-primary transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]"
+            className="flex-shrink-0 bg-primary text-white font-headline font-black text-sm uppercase tracking-widest px-8 py-4 hover:bg-white hover:text-primary transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)] outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             Book a Free Trial
           </button>
@@ -239,9 +243,9 @@ export function Footer() {
             © {new Date().getFullYear()} Guerreiro Grappling · Gillitts, Durban · All Rights Reserved
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/rules" className="text-[10px] font-label font-bold uppercase tracking-widest text-white/20 hover:text-white/60 transition-colors">Gym Rules</Link>
-            <Link href="/faqs" className="text-[10px] font-label font-bold uppercase tracking-widest text-white/20 hover:text-white/60 transition-colors">FAQs</Link>
-            <Link href="/contact" className="text-[10px] font-label font-bold uppercase tracking-widest text-white/20 hover:text-white/60 transition-colors">Contact</Link>
+            <Link href="/rules" className="text-[10px] font-label font-bold uppercase tracking-widest text-white/20 hover:text-white/60 transition-colors outline-none focus-visible:text-white">Gym Rules</Link>
+            <Link href="/faqs" className="text-[10px] font-label font-bold uppercase tracking-widest text-white/20 hover:text-white/60 transition-colors outline-none focus-visible:text-white">FAQs</Link>
+            <Link href="/contact" className="text-[10px] font-label font-bold uppercase tracking-widest text-white/20 hover:text-white/60 transition-colors outline-none focus-visible:text-white">Contact</Link>
           </div>
         </div>
       </div>

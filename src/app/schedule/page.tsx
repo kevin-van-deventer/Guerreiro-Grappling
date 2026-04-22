@@ -120,7 +120,7 @@ export default function SchedulePage() {
   };
 
   return (
-    <main className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       <PageHero
@@ -417,6 +417,6 @@ export default function SchedulePage() {
       </AnimatePresence>
 
 
-    </main>
+    </div>
   );
 }

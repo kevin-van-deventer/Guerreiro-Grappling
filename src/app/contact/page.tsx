@@ -10,7 +10,7 @@ import { PageHero } from "@/components/PageHero";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <Navbar />
 
       <PageHero
@@ -119,6 +119,6 @@ export default function ContactPage() {
       </section>
 
 
-    </main>
+    </div>
   );
 }

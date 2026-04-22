@@ -112,3 +112,14 @@ To run this repository locally:
 - [ ] **Performance**: Re-verify caching strategies to guarantee split-second delivery.
 - [ ] **DevOps**: Containerize the app with Docker for isolated deployment potential.
 - [ ] **Schema Markups**: Add schema markups to the website.
+
+- [ ] **Accessibility & Professional Polish (QA)**:
+    - [ ] Interactive controls are keyboard focusable (visible focus rings).
+    - [ ] Interactive elements indicate their purpose and state (aria-labels).
+    - [ ] Logical tab order (follows visual flow).
+    - [ ] Visual order follows DOM order.
+    - [ ] Focus trapping in modals (`LeadModal`, Mobile Menu).
+    - [x] HTML5 landmark elements (`main`, `nav`, `footer`).
+    - [ ] Offscreen content hidden from assistive technology (`aria-hidden`).
+    - [ ] Custom controls have associated labels and ARIA roles.
+    - [ ] **Visual Audit**: Ensure no section separators/dividers clip titles on mobile viewports.

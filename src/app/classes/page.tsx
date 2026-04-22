@@ -16,7 +16,7 @@ const tiers = [
 
 export default function ClassesPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <Navbar />
 
       <PageHero
@@ -29,7 +29,7 @@ export default function ClassesPage() {
 
 
       {/* Pricing Tiers */}
-      <section className="py-24 md:py-32 bg-foreground text-background relative diagonal-divider-top overflow-hidden">
+      <section className="pt-48 pb-24 md:pt-56 md:pb-32 bg-foreground text-background relative diagonal-divider-top overflow-hidden">
         <div className="absolute inset-0 torque-gradient opacity-10 skew-y-12"></div>
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="text-center mb-20 space-y-4">
@@ -74,6 +74,6 @@ export default function ClassesPage() {
       </section>
 
 
-    </main>
+    </div>
   );
 }

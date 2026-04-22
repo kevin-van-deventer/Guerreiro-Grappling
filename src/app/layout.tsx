@@ -320,9 +320,9 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${manrope.variable} ${lexend.variable} min-h-full flex flex-col pt-[72px] lg:pt-[88px] overflow-x-clip`}
       >
-        <div className="flex-grow flex flex-col">
+        <main className="flex-grow flex flex-col">
           {children}
-        </div>
+        </main>
         <LeadModal />
         <WhatsAppButton />
         <Footer />

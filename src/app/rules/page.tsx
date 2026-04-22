@@ -53,7 +53,7 @@ const ruleSections = [
 
 export default function RulesPage() {
   return (
-    <main className="min-h-screen bg-background text-on-background font-body">
+    <div className="min-h-screen bg-background text-on-background font-body">
       <Navbar />
 
       <PageHero
@@ -104,7 +104,7 @@ export default function RulesPage() {
       </section>
 
       {/* The Mat Law (Safety & Etiquette) */}
-      <section className="py-24 md:py-32 bg-surface-container-low relative diagonal-divider-top overflow-hidden">
+      <section className="pt-48 pb-24 md:pt-56 md:pb-32 bg-surface-container-low relative diagonal-divider-top overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-7xl font-headline font-black uppercase tracking-tighter">THE MAT <span className="text-secondary italic">LAW</span></h2>
@@ -193,7 +193,7 @@ export default function RulesPage() {
       </section>
 
       {/* The General Combat Law (Rules of Engagement) */}
-      <section className="py-24 md:py-32 bg-surface-container relative diagonal-divider-top overflow-hidden">
+      <section className="pt-48 pb-24 md:pt-56 md:pb-32 bg-surface-container relative diagonal-divider-top overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-20 space-y-4">
             <h2 className="text-5xl md:text-8xl font-headline font-black uppercase tracking-tighter">RULES OF <span className="text-primary italic">ENGAGEMENT</span></h2>
@@ -344,6 +344,6 @@ export default function RulesPage() {
           "The junior partner sets the pace. We need each other to train, so be a good teammate."
         </h3>
       </section>
-    </main>
+    </div>
   );
 }

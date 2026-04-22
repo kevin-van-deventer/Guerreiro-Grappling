@@ -39,8 +39,8 @@ export function PageHero({
 
       {/* Content */}
       <div className="max-w-7xl mx-auto w-full relative z-10 text-center space-y-6">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-headline font-black leading-[0.9] tracking-tighter uppercase italic">
-          {title} <span className="text-primary">{highlight}</span>
+        <h1 className="text-[12vw] md:text-8xl lg:text-9xl font-headline font-black leading-[0.9] tracking-tighter uppercase italic">
+          {title} <span className="text-primary break-words">{highlight}</span>
         </h1>
         <div className={`h-2 w-32 mx-auto ${accentColor}`} />
         <p className="font-label font-bold text-primary uppercase tracking-[0.4em] text-sm md:text-base italic">

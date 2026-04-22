@@ -89,3 +89,16 @@ Run through the static text and update the core content loop.
 
 ## 6. Deployment Overrides
 - [ ] **Environment Variables**: Set up a fresh `.env.local`. Create a new secure `ADMIN_PASSWORD` and `NEXT_PUBLIC_ADMIN_PASSWORD` value to protect the new client's native Schedule editor portal.
+
+---
+
+## 7. Final Accessibility & Visual Polish
+Before handing off the project, perform these final checks:
+
+- [ ] **Interactive Focus**: Verify all buttons, links, and inputs have visible `focus-visible` rings.
+- [ ] **ARIA Labels**: Ensure icon-only buttons (like the menu toggle or social icons) have descriptive `aria-label` attributes.
+- [ ] **Landmarks**: Verify the `<main>` tag is correctly implemented and all pages use semantic tags (`nav`, `footer`).
+- [ ] **Focus Trapping**: Test the `LeadModal` and Mobile Menu with a keyboard to ensure focus does not escape to the background.
+- [ ] **Heading Hierarchy**: Ensure all headings (H1-H6) follow a sequentially-descending order across all pages (H1 → H2 → H3) to maintain accessibility standards.
+- [ ] **Visual Audit (Mobile)**: Visit the site on a physical device or mobile emulator. Check every section header to ensure it is not clipped or obscured by the diagonal divider design pattern.
+

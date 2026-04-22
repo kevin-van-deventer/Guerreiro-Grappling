@@ -39,7 +39,7 @@ export default function FAQsPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <Navbar />
 
       <PageHero
@@ -51,7 +51,7 @@ export default function FAQsPage() {
       />
 
       {/* FAQ Accordion */}
-      <section className="py-24 md:py-32 px-6 md:px-12 bg-surface-container-low relative diagonal-divider-top">
+      <section className="pt-48 pb-24 md:pt-56 md:pb-32 px-6 md:px-12 bg-surface-container-low relative diagonal-divider-top">
         <div className="max-w-4xl mx-auto py-12">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-7xl font-headline font-black uppercase tracking-tighter">FREQUENTLY ASKED <span className="text-primary italic">QUESTIONS</span></h2>
@@ -117,6 +117,6 @@ export default function FAQsPage() {
       </section>
 
 
-    </main>
+    </div>
   );
 }

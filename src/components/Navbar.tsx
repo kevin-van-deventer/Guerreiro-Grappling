@@ -42,6 +42,7 @@ export function Navbar() {
 
   return (
     <nav
+      aria-label="Main Navigation"
       className={cn(
         "fixed top-0 w-full z-[100] transition-all duration-500",
         isOpen 
@@ -53,7 +54,12 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 group relative z-50">
+        <Link 
+          href="/" 
+          onClick={() => setIsOpen(false)} 
+          className="flex items-center gap-2 group relative z-50 rounded-lg focus-visible:ring-2 focus-visible:ring-primary outline-none"
+          aria-label="Guerreiro Grappling Home"
+        >
           <div className="relative w-12 h-12 md:w-16 md:h-16">
             <Image
               src="/Guerreiro-Grappling-Logo.png"
@@ -82,7 +88,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "font-headline font-bold uppercase tracking-tighter transition-kinetic text-sm",
+                "font-headline font-bold uppercase tracking-tighter transition-kinetic text-sm outline-none focus-visible:text-primary",
                 "hover:text-primary hover:skew-x-[-12deg]",
                 pathname === link.href ? "text-primary italic" : "text-foreground opacity-70 hover:opacity-100"
               )}
@@ -92,7 +98,7 @@ export function Navbar() {
           ))}
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open-lead-modal"))}
-            className="torque-gradient text-white font-headline font-black px-6 py-2 skew-x-[-12deg] hover:skew-x-0 transition-kinetic text-sm uppercase shadow-lg shadow-primary/20"
+            className="torque-gradient text-white font-headline font-black px-6 py-2 skew-x-[-12deg] hover:skew-x-0 transition-kinetic text-sm uppercase shadow-lg shadow-primary/20 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:skew-x-0"
           >
             Join the Fold
           </button>
@@ -101,10 +107,12 @@ export function Navbar() {
         {/* Mobile Toggle */}
         <button
           className={cn(
-            "lg:hidden p-2 relative z-50 transition-colors duration-300",
+            "lg:hidden p-2 relative z-50 transition-colors duration-300 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md",
             isOpen ? "text-white" : "text-foreground"
           )}
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close Menu" : "Open Menu"}
+          aria-expanded={isOpen}
         >
           {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
@@ -136,7 +144,7 @@ export function Navbar() {
                     href={link.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "font-headline font-black text-5xl uppercase tracking-tighter transition-all block w-full",
+                      "font-headline font-black text-5xl uppercase tracking-tighter transition-all block w-full outline-none focus-visible:text-primary",
                       pathname === link.href 
                         ? "text-primary italic skew-x-[-4deg] translate-x-2" 
                         : "text-white/80 hover:text-white"
@@ -162,7 +170,7 @@ export function Navbar() {
                   setIsOpen(false);
                   window.dispatchEvent(new CustomEvent("open-lead-modal"));
                 }}
-                className="w-full bg-primary text-white font-headline font-black px-8 py-5 text-xl skew-x-[-4deg] hover:skew-x-0 transition-all uppercase shadow-[8px_8px_0px_0px_rgba(255,255,255,0.05)] active:translate-y-1 active:shadow-none block"
+                className="w-full bg-primary text-white font-headline font-black px-8 py-5 text-xl skew-x-[-4deg] hover:skew-x-0 transition-all uppercase shadow-[8px_8px_0px_0px_rgba(255,255,255,0.05)] active:translate-y-1 active:shadow-none block outline-none focus-visible:ring-4 focus-visible:ring-white/20"
               >
                 Start Your Journey
               </button>
