@@ -77,22 +77,22 @@ export default function RulesPage() {
               </p>
             </div>
             <div className="space-y-6 bg-surface-container-low p-8 md:p-12 border-l-8 border-primary skew-x-[-2deg] shadow-2xl relative">
-              <div className="absolute top-4 right-4 text-primary/10 font-headline font-black text-6xl">ADMIN</div>
+              <div className="absolute top-4 right-4 text-primary font-headline font-black text-6xl opacity-[var(--ghost-text-opacity)]">ADMIN</div>
               <ul className="space-y-6 relative z-10">
                 <li className="flex gap-4 items-center">
-                  <span className="text-primary font-headline font-black text-2xl italic">01.</span>
+                  <span className="text-primary-light font-headline font-black text-2xl italic">01.</span>
                   <p className="font-headline font-bold text-lg uppercase">Month-to-Month Contracts. No long-term traps.</p>
                 </li>
                 <li className="flex gap-4 items-center">
-                  <span className="text-primary font-headline font-black text-2xl italic">02.</span>
+                  <span className="text-primary-light font-headline font-black text-2xl italic">02.</span>
                   <p className="font-headline font-bold text-lg uppercase text-secondary">One Month Termination Notice Required.</p>
                 </li>
                 <li className="flex gap-4 items-center">
-                  <span className="text-primary font-headline font-black text-2xl italic">03.</span>
+                  <span className="text-primary-light font-headline font-black text-2xl italic">03.</span>
                   <p className="font-headline font-bold text-lg uppercase">Fees payable in advance by the 3rd of each month.</p>
                 </li>
                 <li className="flex gap-4 items-center">
-                  <span className="text-primary font-headline font-black text-2xl italic">04.</span>
+                  <span className="text-primary-light font-headline font-black text-2xl italic">04.</span>
                   <p className="font-headline font-bold text-lg uppercase">No payment holidays for holidays or absences.</p>
                 </li>
               </ul>
@@ -250,7 +250,7 @@ export default function RulesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 relative">
               <div className="bg-surface-container -rotate-3 p-8 md:p-16 border-4 border-white shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 font-headline font-black text-8xl text-primary/5 uppercase rotate-12">TAP</div>
+                <div className="absolute top-0 right-0 p-4 font-headline font-black text-8xl text-primary font-headline opacity-[var(--ghost-text-opacity)] uppercase rotate-12">TAP</div>
                 <h3 className="text-4xl md:text-5xl font-headline font-black uppercase italic mb-8 relative z-10 leading-none">TAP EARLY. <br/><span className="text-primary italic">TAP OFTEN.</span></h3>
                 <p className="text-lg opacity-70 leading-relaxed font-body relative z-10">
                   The tap is a sign of mutual trust. It is not a defeat; it is the reset button that allows you to train for another 20 years. Tapping means you've been caught and you've learned.

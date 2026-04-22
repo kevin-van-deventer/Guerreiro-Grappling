@@ -46,7 +46,7 @@ export default function ClassesPage() {
                 viewport={{ once: true }}
                 className="bg-neutral-900 border-t-8 border-primary p-10 skew-x-[-4deg] hover:scale-105 transition-kinetic shadow-2xl relative"
               >
-                <div className="absolute top-4 right-4 text-primary font-headline font-black text-5xl">0{i + 1}</div>
+                <div className="absolute top-4 right-4 text-primary-light font-headline font-black text-5xl opacity-[var(--ghost-text-opacity)]">0{i + 1}</div>
                 <h3 className="text-4xl font-headline font-black uppercase mb-2">{tier.name}</h3>
                 <div className="flex items-baseline gap-2 mb-8">
                   <span className="text-5xl font-headline font-black tracking-tighter text-primary">R{tier.price}</span>

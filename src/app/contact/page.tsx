@@ -38,17 +38,17 @@ export default function ContactPage() {
             <form className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2 group">
-                  <label htmlFor="contact-name" className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Full Name</label>
+                  <label htmlFor="contact-name" className="font-label font-black text-xs uppercase tracking-widest opacity-70 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Full Name</label>
                   <input id="contact-name" type="text" placeholder="John 'The Ripper' Doe" className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-kinetic skew-x-[-3deg] focus:skew-x-0 focus-visible:ring-2 focus-visible:ring-primary" />
                 </div>
                 <div className="space-y-2 group">
-                  <label htmlFor="contact-email" className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Email Address</label>
+                  <label htmlFor="contact-email" className="font-label font-black text-xs uppercase tracking-widest opacity-70 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Email Address</label>
                   <input id="contact-email" type="email" placeholder="john@kinetic.co.za" className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-all skew-x-[-3deg] focus:skew-x-0 focus-visible:ring-2 focus-visible:ring-primary" />
                 </div>
               </div>
 
               <div className="space-y-2 group">
-                <label htmlFor="contact-program" className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Select Program</label>
+                <label htmlFor="contact-program" className="font-label font-black text-xs uppercase tracking-widest opacity-70 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Select Program</label>
                 <select id="contact-program" className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-all skew-x-[-3deg] focus:skew-x-0 appearance-none focus-visible:ring-2 focus-visible:ring-primary">
                   <option>Brazilian Jiu-Jitsu</option>
                   <option>MMA & Kickboxing</option>
@@ -58,7 +58,7 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-2 group">
-                <label htmlFor="contact-message" className="font-label font-black text-xs uppercase tracking-widest opacity-40 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Transmission</label>
+                <label htmlFor="contact-message" className="font-label font-black text-xs uppercase tracking-widest opacity-70 group-focus-within:opacity-100 group-focus-within:text-primary transition-all">Transmission</label>
                 <textarea id="contact-message" rows={4} placeholder="Tell us about your combat background or goals..." className="w-full bg-surface-container-low border-b-4 border-primary/20 focus:border-primary outline-none px-4 py-4 font-headline font-bold text-xl uppercase transition-all skew-x-[-3deg] focus:skew-x-0 resize-none focus-visible:ring-2 focus-visible:ring-primary"></textarea>
               </div>
 

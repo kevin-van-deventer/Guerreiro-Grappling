@@ -65,7 +65,7 @@ export default function FAQsPage() {
                 transition={{ delay: idx * 0.1 }}
                 className={cn(
                   "border-l-8 transition-kinetic overflow-hidden shadow-xl",
-                  openIndex === idx ? "bg-white dark:bg-neutral-900 border-primary" : "bg-neutral-50 dark:bg-neutral-800 border-transparent opacity-60 hover:opacity-100 hover:border-primary/20"
+                  openIndex === idx ? "bg-white dark:bg-neutral-900 border-primary" : "bg-neutral-50 dark:bg-neutral-800 border-transparent opacity-[0.85] hover:opacity-100 hover:border-primary/20"
                 )}
               >
                 <button

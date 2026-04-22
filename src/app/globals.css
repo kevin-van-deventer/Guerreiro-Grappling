@@ -51,6 +51,11 @@
   --color-on-tertiary: #ffffff;
   --color-primary-fixed: #d8e2ff;
 
+  /* Contrast Remediation Variants */
+  --color-primary-light: #6ea5ff;
+  --color-secondary-light: #ff8a8a;
+  --ghost-text-opacity: 0.35;
+
   /* Identical Fonts */
   --font-headline: "var(--font-space-grotesk)", sans-serif;
   --font-body: "var(--font-manrope)", sans-serif;

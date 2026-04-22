@@ -183,7 +183,7 @@ export default function HomePage() {
                 <p className="text-xl md:text-2xl font-headline font-bold italic font-headline">"The instructors here don't just show techniques; they explain the physics. My game has evolved more in 6 months here than 2 years elsewhere."</p>
                 <div className="mt-8 flex items-center gap-4">
                   <div className="h-px w-12 bg-primary"></div>
-                  <p className="font-label font-bold uppercase tracking-widest text-[10px] md:text-sm text-primary italic">Samantha Reed // Purple Belt</p>
+                  <p className="font-label font-bold uppercase tracking-widest text-[10px] md:text-sm text-primary-light italic">Samantha Reed // Purple Belt</p>
                 </div>
               </div>
               <div className="absolute -top-4 -left-4 w-full h-full border-4 border-primary skew-x-[4deg] md:skew-x-[8deg] -z-10 group-hover:skew-x-0 transition-all duration-500"></div>
@@ -207,7 +207,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-background">
             {/* White Belt */}
             <div className="group relative bg-neutral-900 border-l-4 border-white p-8 skew-x-[-4deg] hover:skew-x-0 transition-all duration-500 hover:bg-neutral-800">
-              <div className="absolute top-4 right-4 text-neutral-800 font-headline font-black text-6xl group-hover:text-white/10 transition-colors uppercase">01</div>
+              <div className="absolute top-4 right-4 text-white/20 font-headline font-black text-6xl group-hover:text-white/40 transition-colors uppercase">01</div>
               <div className="w-16 h-4 bg-white mb-6 skew-x-12"></div>
               <h3 className="text-2xl font-headline font-black uppercase mb-4">White Belt</h3>
               <p className="text-sm font-label opacity-60 uppercase tracking-widest italic mb-4">Foundation of Survival</p>
@@ -215,7 +215,7 @@ export default function HomePage() {
             </div>
             {/* Blue Belt */}
             <div className="group relative bg-neutral-900 border-l-4 border-electric-blue p-8 skew-x-[4deg] hover:skew-x-0 transition-all duration-500 hover:bg-neutral-800">
-              <div className="absolute top-4 right-4 text-neutral-800 font-headline font-black text-6xl group-hover:text-electric-blue/10 transition-colors uppercase tracking-widest">02</div>
+              <div className="absolute top-4 right-4 text-white/20 font-headline font-black text-6xl group-hover:text-electric-blue/40 transition-colors uppercase tracking-widest">02</div>
               <div className="w-16 h-4 bg-electric-blue mb-6 -skew-x-12"></div>
               <h3 className="text-2xl font-headline font-black uppercase mb-4">Blue Belt</h3>
               <p className="text-sm font-label text-electric-blue uppercase tracking-widest italic mb-4">The Technical Blueprint</p>
@@ -223,7 +223,7 @@ export default function HomePage() {
             </div>
             {/* Purple Belt */}
             <div className="group relative bg-neutral-900 border-l-4 border-purple-600 p-8 skew-x-[-4deg] hover:skew-x-0 transition-all duration-500 hover:bg-neutral-800 lg:translate-y-8">
-              <div className="absolute top-4 right-4 text-neutral-800 font-headline font-black text-6xl group-hover:text-purple-600/10 transition-colors uppercase tracking-widest">03</div>
+              <div className="absolute top-4 right-4 text-white/20 font-headline font-black text-6xl group-hover:text-purple-600/40 transition-colors uppercase tracking-widest">03</div>
               <div className="w-16 h-4 bg-purple-600 mb-6 skew-x-12"></div>
               <h3 className="text-2xl font-headline font-black uppercase mb-4">Purple Belt</h3>
               <p className="text-sm font-label text-purple-400 uppercase tracking-widest italic mb-4">The Architect of Flow</p>
@@ -231,7 +231,7 @@ export default function HomePage() {
             </div>
             {/* Brown Belt */}
             <div className="group relative bg-neutral-900 border-l-4 border-amber-900 p-8 skew-x-[4deg] hover:skew-x-0 transition-all duration-500 hover:bg-neutral-800">
-              <div className="absolute top-4 right-4 text-neutral-800 font-headline font-black text-6xl group-hover:text-amber-900/10 transition-colors uppercase tracking-widest">04</div>
+              <div className="absolute top-4 right-4 text-white/20 font-headline font-black text-6xl group-hover:text-amber-900/40 transition-colors uppercase tracking-widest">04</div>
               <div className="w-16 h-4 bg-amber-900 mb-6 -skew-x-12"></div>
               <h3 className="text-2xl font-headline font-black uppercase mb-4">Brown Belt</h3>
               <p className="text-sm font-label text-amber-600 uppercase tracking-widest italic mb-4">Refinement of Lethality</p>
@@ -239,7 +239,7 @@ export default function HomePage() {
             </div>
             {/* Black Belt */}
             <div className="group relative bg-neutral-900 border-l-4 border-red-600 p-8 skew-x-[-4deg] hover:skew-x-0 transition-all duration-500 hover:bg-neutral-800 lg:translate-y-8">
-              <div className="absolute top-4 right-4 text-neutral-800 font-headline font-black text-6xl group-hover:text-red-600/10 transition-colors uppercase tracking-widest">05</div>
+              <div className="absolute top-4 right-4 text-white/20 font-headline font-black text-6xl group-hover:text-red-600/40 transition-colors uppercase tracking-widest">05</div>
               <div className="w-16 h-4 bg-black border border-red-600 mb-6 skew-x-12 relative flex">
                 <div className="w-1/3 h-full bg-red-600 absolute right-0"></div>
               </div>
@@ -411,7 +411,7 @@ export default function HomePage() {
               <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(0,89,187,0.1)] skew-x-[-2deg] transition-all duration-500 hover:skew-x-0 border-l-[12px] border-primary group">
                 <div className="flex justify-between items-start mb-6">
                   <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Brazilian<br/>Jiu-Jitsu</h3>
-                  <span className="text-primary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">01</span>
+                  <span className="text-primary font-headline font-black text-6xl opacity-[var(--ghost-text-opacity)] group-hover:opacity-100 transition-opacity duration-500 italic">01</span>
                 </div>
                 <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Leverage Over Brute Strength.</p>
                 <p className="font-medium text-neutral-600 leading-relaxed mb-8">
@@ -429,7 +429,7 @@ export default function HomePage() {
               <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(255,255,255,0.05)] skew-x-[2deg] transition-all duration-500 hover:skew-x-0 border-r-[12px] border-secondary group relative right-0 lg:-right-8">
                 <div className="flex justify-between items-start mb-6">
                   <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">MMA &<br/>Kickboxing</h3>
-                  <span className="text-secondary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">02</span>
+                  <span className="text-secondary font-headline font-black text-6xl opacity-[var(--ghost-text-opacity)] group-hover:opacity-100 transition-opacity duration-500 italic">02</span>
                 </div>
                 <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Strength, Agility, and Precision.</p>
                 <p className="font-medium text-neutral-600 leading-relaxed mb-8">
@@ -447,7 +447,7 @@ export default function HomePage() {
               <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(0,89,187,0.1)] skew-x-[-2deg] transition-all duration-500 hover:skew-x-0 border-l-[12px] border-primary group">
                  <div className="flex justify-between items-start mb-6">
                   <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Kids<br/>Jiu-Jitsu</h3>
-                  <span className="text-primary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">03</span>
+                  <span className="text-primary font-headline font-black text-6xl opacity-[var(--ghost-text-opacity)] group-hover:opacity-100 transition-opacity duration-500 italic">03</span>
                 </div>
                 <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Anti-Bullying & Discipline.</p>
                 <p className="font-medium text-neutral-600 leading-relaxed mb-8">
@@ -465,7 +465,7 @@ export default function HomePage() {
               <div className="bg-white text-neutral-950 p-8 md:p-12 shadow-[16px_16px_0px_0px_rgba(255,255,255,0.05)] skew-x-[2deg] transition-all duration-500 hover:skew-x-0 border-r-[12px] border-secondary group relative right-0 lg:-right-8">
                 <div className="flex justify-between items-start mb-6">
                   <h3 className="text-4xl md:text-5xl font-headline font-black uppercase tracking-tighter leading-none">Ladies<br/>Only Classes</h3>
-                  <span className="text-secondary font-headline font-black text-6xl opacity-10 group-hover:opacity-100 transition-opacity duration-500 italic">04</span>
+                  <span className="text-secondary font-headline font-black text-6xl opacity-[var(--ghost-text-opacity)] group-hover:opacity-100 transition-opacity duration-500 italic">04</span>
                 </div>
                 <p className="text-lg md:text-xl font-black mb-4 opacity-90 tracking-tight uppercase">Empowerment & Self-Defense.</p>
                 <p className="font-medium text-neutral-600 leading-relaxed mb-8">

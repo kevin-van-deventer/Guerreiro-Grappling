@@ -220,7 +220,7 @@ export default function AboutPage() {
                 transition={{ delay: i * 0.1 }}
                 className="group relative bg-surface-container-low border-b-8 border-primary p-6 md:p-8 skew-x-[-2deg] hover:skew-x-0 transition-kinetic shadow-xl min-w-[280px] sm:min-w-[320px] md:min-w-0 snap-center"
               >
-                <div className="absolute top-4 right-4 text-primary/5 font-headline font-black text-6xl group-hover:text-primary/10 transition-kinetic">0{i+1}</div>
+                <div className="absolute top-4 right-4 text-white/20 font-headline font-black text-6xl group-hover:text-primary/40 transition-kinetic">0{i+1}</div>
                 <div className={cn("w-16 h-4 mb-6 md:mb-8 skew-x-12", belt.color, belt.level === "White" && "border border-primary/20", belt.level === "Black" && "border-r-[24px] border-secondary")}></div>
                 <h3 className="text-xl md:text-2xl font-headline font-black uppercase mb-1 md:mb-2 leading-tight">{belt.level} Belt</h3>
                 <p className="text-[10px] font-label font-bold text-primary uppercase tracking-widest italic mb-4 md:mb-6">{belt.text}</p>
@@ -243,24 +243,24 @@ export default function AboutPage() {
              <h2 className="text-4xl md:text-6xl font-headline font-black uppercase tracking-tighter">THE GUERREIRO <span className="text-secondary italic">ADVANTAGE</span></h2>
              <p className="font-label font-bold text-primary uppercase tracking-[0.3em] text-xs">MORE THAN JUST MAT TIME</p>
            </div>
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
              <div className="space-y-4">
-               <div className="text-primary font-headline font-black text-5xl italic opacity-20">01</div>
+               <div className="text-primary font-headline font-black text-5xl italic opacity-[var(--ghost-text-opacity)]">01</div>
                <h3 className="text-xl font-headline font-black uppercase italic">Self Defence</h3>
                <p className="text-sm opacity-70 leading-relaxed">BJJ is the most effective art for neutralizing larger opponents using leverage instead of power. Real-world skills for real-world scenarios.</p>
              </div>
              <div className="space-y-4">
-               <div className="text-secondary font-headline font-black text-5xl italic opacity-20">02</div>
+               <div className="text-secondary font-headline font-black text-5xl italic opacity-[var(--ghost-text-opacity)]">02</div>
                <h3 className="text-xl font-headline font-black uppercase italic">Weight Loss</h3>
                <p className="text-sm opacity-70 leading-relaxed">A full-body metabolic engine. Our training sessions burn significant calories while building functional, adaptive strength.</p>
              </div>
              <div className="space-y-4">
-               <div className="text-primary font-headline font-black text-5xl italic opacity-20">03</div>
+               <div className="text-primary font-headline font-black text-5xl italic opacity-[var(--ghost-text-opacity)]">03</div>
                <h3 className="text-xl font-headline font-black uppercase italic">Cardio Engine</h3>
                <p className="text-sm opacity-70 leading-relaxed">Build elite cardiovascular endurance through live rolling. You won't just look fit; you'll have the gas tank to back it up.</p>
              </div>
              <div className="space-y-4">
-               <div className="text-secondary font-headline font-black text-5xl italic opacity-20">04</div>
+               <div className="text-secondary font-headline font-black text-5xl italic opacity-[var(--ghost-text-opacity)]">04</div>
                <h3 className="text-xl font-headline font-black uppercase italic">Mental Focus</h3>
                <p className="text-sm opacity-70 leading-relaxed">Grappling is human chess. Develop the discipline to solve complex problems under intense physical and mental pressure.</p>
              </div>
